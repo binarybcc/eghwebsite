@@ -550,4 +550,85 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.textContent = '+';
         icon.setAttribute('aria-expanded', 'false');
     });
+    
+    // Initialize photo modal functionality
+    initializePhotoModal();
 });
+
+// Photo Modal System
+function initializePhotoModal() {
+    // Create modal HTML structure
+    const modal = document.createElement('div');
+    modal.className = 'photo-modal';
+    modal.innerHTML = `
+        <div class="photo-modal-content">
+            <img class="photo-modal-image" src="" alt="">
+            <button class="photo-modal-close" aria-label="Close photo">×</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Get modal elements
+    const modalImage = modal.querySelector('.photo-modal-image');
+    const closeButton = modal.querySelector('.photo-modal-close');
+    
+    // Add click handlers to all team photos
+    const teamPhotos = document.querySelectorAll('.team-photo');
+    teamPhotos.forEach(photo => {
+        photo.addEventListener('click', function(e) {
+            e.preventDefault();
+            openPhotoModal(this.src, this.alt);
+        });
+        
+        // Add keyboard support
+        photo.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPhotoModal(this.src, this.alt);
+            }
+        });
+        
+        // Make photos focusable
+        photo.setAttribute('tabindex', '0');
+        photo.setAttribute('role', 'button');
+        photo.setAttribute('aria-label', 'Click to view larger photo');
+    });
+    
+    // Close modal handlers
+    closeButton.addEventListener('click', closePhotoModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closePhotoModal();
+        }
+    });
+    
+    // Keyboard handlers
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closePhotoModal();
+        }
+    });
+    
+    function openPhotoModal(src, alt) {
+        modalImage.src = src;
+        modalImage.alt = alt;
+        modal.classList.add('show');
+        document.body.classList.add('modal-open');
+        
+        // Focus management
+        closeButton.focus();
+    }
+    
+    function closePhotoModal() {
+        modal.classList.remove('show');
+        document.body.classList.remove('modal-open');
+        modalImage.src = '';
+        modalImage.alt = '';
+        
+        // Return focus to the photo that was clicked
+        const activePhoto = document.activeElement;
+        if (activePhoto && activePhoto.classList.contains('team-photo')) {
+            activePhoto.focus();
+        }
+    }
+}
