@@ -168,8 +168,13 @@ eghwebsite/
 ├── newspapers.csv           # Newspaper properties
 ├── radio_networks.csv       # Radio station data
 ├── printing_companies.csv   # Printing company data
+├── /assets                  # Images and Photos
+├── CLAUDE.md                # Development notes and technical documentation
 └── README.md               # This file
 ```
+
+> **Note**: For detailed development information, asset naming conventions, and technical implementation notes, see [CLAUDE.md](CLAUDE.md).
+
 
 ## Development Notes
 
