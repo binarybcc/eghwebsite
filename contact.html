@@ -452,21 +452,53 @@
                     return;
                 }
                 
-                // Simulate form submission
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    window.edwardsGroup.showMessage('Please enter a valid email address.', 'error');
+                    return;
+                }
+                
+                // Phone validation (if provided)
+                if (data.phone && !/^[\+]?[0-9\s\-\(\)]{10,20}$/.test(data.phone)) {
+                    window.edwardsGroup.showMessage('Please enter a valid phone number.', 'error');
+                    return;
+                }
+                
+                // Message length validation
+                if (data.message.length > 2000) {
+                    window.edwardsGroup.showMessage('Message must be under 2000 characters.', 'error');
+                    return;
+                }
+                
+                // Submit form
                 const submitButton = form.querySelector('button[type="submit"]');
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Sending...';
                 submitButton.disabled = true;
                 
-                // Simulate API call
-                setTimeout(() => {
-                    window.edwardsGroup.showMessage('Thank you for your message! We will respond within one business day.', 'success');
-                    form.reset();
+                // Send to PHP handler
+                fetch('simple_email.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        window.edwardsGroup.showMessage(result.message, 'success');
+                        form.reset();
+                    } else {
+                        window.edwardsGroup.showMessage(result.message || 'An error occurred. Please try again.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Form submission error:', error);
+                    window.edwardsGroup.showMessage('Unable to send message. Please try again or contact us directly.', 'error');
+                })
+                .finally(() => {
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
-                }, 2000);
-                
-                console.log('Form submission:', data);
+                });
             });
         }
     </script>
