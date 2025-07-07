@@ -98,6 +98,7 @@ class EdwardsGroupWebsite {
 
     populateContent() {
         this.populateNewspapersList();
+        this.populateNewspapersGrid();
         this.populateRadioList();
         this.populatePrintingList();
         this.populateLeadershipGrid();
@@ -119,6 +120,31 @@ class EdwardsGroupWebsite {
             ul.appendChild(li);
         });
         container.appendChild(ul);
+    }
+
+    populateNewspapersGrid() {
+        const container = document.getElementById('newspapers-grid');
+        if (!container || !this.data.newspapers.length) return;
+
+        this.data.newspapers.forEach(newspaper => {
+            const card = document.createElement('div');
+            card.className = 'newspaper-card';
+            card.innerHTML = `
+                <h3>${newspaper.newspaper_name}</h3>
+                <div class="newspaper-details">
+                    <p><strong>Location:</strong> ${newspaper.city}, ${newspaper.state}</p>
+                    <p><strong>County:</strong> ${newspaper.county} County</p>
+                    ${newspaper.street_address ? `<p><strong>Address:</strong> ${newspaper.street_address}</p>` : ''}
+                    <p><strong>Phone:</strong> ${newspaper.phone}</p>
+                    ${newspaper.website ? `<p><strong>Website:</strong> <a href="https://${newspaper.website}" target="_blank">${newspaper.website}</a></p>` : ''}
+                </div>
+                <div class="newspaper-actions">
+                    ${newspaper.website ? `<a href="https://${newspaper.website}" target="_blank" class="btn-primary">Visit Website</a>` : ''}
+                    <a href="contact.html" class="btn-secondary">Contact</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
     }
 
     populateRadioList() {
