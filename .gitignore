@@ -1,0 +1,36 @@
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+
+# PHP
+vendor/
+composer.lock
+
+# Credentials and Secrets
+config/secrets.php
+credentials.json
+private_key.pem
+*.key
+*.pem
+
+# Backup Files
+*.bak
+*.backup
