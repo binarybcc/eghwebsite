@@ -30,9 +30,9 @@ class EGHEmailer {
         return [
             'host' => 'smtp.gmail.com',
             'port' => 587,
-            'username' => 'YOUR_WORKSPACE_EMAIL@edwardsgroup.com',
+            'username' => 'YOUR_WORKSPACE_EMAIL@edwards-group.com',
             'password' => 'YOUR_APP_PASSWORD',
-            'from_email' => 'YOUR_WORKSPACE_EMAIL@edwardsgroup.com',
+            'from_email' => 'YOUR_WORKSPACE_EMAIL@edwards-group.com',
             'from_name' => 'Edwards Group Holdings',
             'timeout' => 10
         ];
@@ -115,7 +115,7 @@ IP Address: {ip}
         
         // Load recipient from config file
         $config_file = __DIR__ . '/email_config.php';
-        $recipient = 'contact@edwardsgroup.com'; // default
+        $recipient = 'jcorbin@upstatetoday.com'; // default
         
         if (file_exists($config_file)) {
             $file_config = include $config_file;
@@ -203,7 +203,7 @@ IP Address: {ip}
         $body = $this->replaceVariables($template['body'], $variables);
         
         return $this->sendEmail([
-            'to' => 'careers@edwardsgroup.com',
+            'to' => 'jcorbin@upstatetoday.com',
             'to_name' => 'Edwards Group Holdings HR',
             'subject' => $subject,
             'body' => $body,
