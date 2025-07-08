@@ -44,7 +44,7 @@ class EdwardsGroupWebsite {
 
     async loadCSV(filename) {
         try {
-            const response = await fetch(filename);
+            const response = await fetch(filename + '?t=' + Date.now());
             const text = await response.text();
             return this.parseCSV(text);
         } catch (error) {
