@@ -8,6 +8,10 @@
       name="description"
       content="Contact Edwards Group Holdings - Reach our corporate office or local operations across South Carolina, Wyoming, and Michigan."
     />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -466,7 +470,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=1.1"></script>
+    <script src="script.js?v=1.1" defer></script>
     <script>
       // Contact page specific functionality
       document.addEventListener("DOMContentLoaded", function () {

@@ -22,6 +22,55 @@
     --transition: all 0.3s ease;
 }
 
+/* Lazy Loading Styles */
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.lazy.loaded {
+    opacity: 1;
+}
+
+/* Placeholder for lazy loaded images */
+.lazy-placeholder {
+    background-color: var(--background-light);
+    background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Performance optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Optimize font loading */
+@font-face {
+    font-family: 'Georgia';
+    font-display: swap;
+}
+
+/* Reduce repaints and reflows */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for animations */
+.team-photo, .btn-primary, .btn-secondary {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
     line-height: 1.6;

@@ -17,6 +17,8 @@ class EdwardsGroupWebsite {
             await this.loadData();
             this.populateContent();
             this.setupEventListeners();
+            this.setupLazyLoading();
+            this.setupWebPSupport();
         } catch (error) {
             console.error('Error initializing website:', error);
         }
@@ -629,6 +631,54 @@ function initializePhotoModal() {
         const activePhoto = document.activeElement;
         if (activePhoto && activePhoto.classList.contains('team-photo')) {
             activePhoto.focus();
+        }
+    }
+
+    setupLazyLoading() {
+        // Lazy loading for team photos and other images
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        if ('IntersectionObserver' in window) {
+            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                        lazyImageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                lazyImageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+            });
+        }
+    }
+
+    // WebP support detection and implementation
+    setupWebPSupport() {
+        // Check if browser supports WebP
+        const webpSupported = (function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1;
+            canvas.height = 1;
+            return canvas.toDataURL('image/webp').indexOf('image/webp') === 5;
+        })();
+
+        if (webpSupported) {
+            // Replace image sources with WebP versions when available
+            const images = document.querySelectorAll('img[data-webp]');
+            images.forEach(img => {
+                img.src = img.dataset.webp;
+            });
         }
     }
 }

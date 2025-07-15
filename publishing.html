@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publishing Division - Edwards Group Holdings</title>
     <meta name="description" content="Edwards Group Holdings Publishing Division - Community newspapers serving South Carolina, Wyoming, and Michigan with trusted local journalism.">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -400,7 +404,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.1"></script>
+    <script src="script.js?v=1.1" defer></script>
 
     <style>
         .newspapers-section, .magazines-section, .services-section, .markets-overview, .advertising-section {

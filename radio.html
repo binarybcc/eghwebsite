@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Division - Edwards Group Holdings</title>
     <meta name="description" content="Edwards Group Holdings Radio Division - 10 radio stations across 3 networks serving Wyoming and Michigan with diverse programming.">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -423,7 +427,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.1"></script>
+    <script src="script.js?v=1.1" defer></script>
     <script>
         // Radio-specific functionality
         document.addEventListener('DOMContentLoaded', function() {
