@@ -1,231 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edwards Group Holdings - Multi-State Media Company</title>
-    <meta name="description" content="Edwards Group Holdings - Leading media company with newspapers, radio stations, and printing services across South Carolina, Wyoming, and Michigan.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Edwards Group Holdings - Leading media company with newspapers, radio stations, and printing services across South Carolina, Wyoming, and Michigan."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-brand">
-                    <div class="brand-container">
-                        <div class="logo-container">
-                            <img src="assets/egh-logo-gold.png" alt="Edwards Group Holdings Logo" class="brand-logo">
-                        </div>
-                        <div class="brand-text">
-                            <h1>Edwards Group Holdings</h1>
-                            <p class="tagline">Excellence in Media & Communication</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#our-companies">Our Companies</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="publishing.html">Publishing</a></li>
-                            <li><a href="radio.html">Radio</a></li>
-                            <li><a href="printing.html">Printing</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-brand">
+            <div class="brand-container">
+              <div class="logo-container">
+                <img
+                  src="assets/egh-logo-gold.png"
+                  alt="Edwards Group Holdings Logo"
+                  class="brand-logo"
+                />
+              </div>
+              <div class="brand-text">
+                <h1>Edwards Group Holdings</h1>
+                <p class="tagline">Excellence in Media & Communication</p>
+              </div>
             </div>
-        </nav>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="#our-companies">Our Companies</a>
+              <ul class="dropdown-menu">
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="radio.html">Radio</a></li>
+                <li><a href="printing.html">Printing</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Connecting Communities Through Media Excellence</h2>
-                    <p>For decades, Edwards Group Holdings has been the trusted voice across South Carolina, Wyoming, and Michigan, delivering quality journalism, engaging radio programming, and professional printing services to the communities we serve.</p>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <h3>4</h3>
-                            <p>Newspapers</p>
-                        </div>
-                        <div class="stat">
-                            <h3>10</h3>
-                            <p>Radio Stations</p>
-                        </div>
-                        <div class="stat">
-                            <h3>4</h3>
-                            <p>Printing Companies</p>
-                        </div>
-                        <div class="stat">
-                            <h3>3</h3>
-                            <p>States</p>
-                        </div>
-                    </div>
-                </div>
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h2>Connecting Communities Through Media Excellence</h2>
+            <p>
+              For decades, Edwards Group Holdings has been the trusted voice
+              across South Carolina, Wyoming, and Michigan, delivering quality
+              journalism, engaging radio programming, and professional printing
+              services to the communities we serve.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <h3>4</h3>
+                <p>Newspapers</p>
+              </div>
+              <div class="stat">
+                <h3>10</h3>
+                <p>Radio Stations</p>
+              </div>
+              <div class="stat">
+                <h3>4</h3>
+                <p>Printing Companies</p>
+              </div>
+              <div class="stat">
+                <h3>3</h3>
+                <p>States</p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="our-companies" class="companies-overview">
-            <div class="container">
-                <h2>Our Companies</h2>
-                <div class="companies-grid">
-                    <div class="company-card">
-                        <div class="card-icon">📰</div>
-                        <h3>Publishing</h3>
-                        <p>Community newspapers serving local markets with trusted journalism and comprehensive coverage.</p>
-                        <div class="properties-list" id="newspapers-list"></div>
-                        <a href="publishing.html" class="btn-secondary">Learn More</a>
-                    </div>
-                    <div class="company-card">
-                        <div class="card-icon">📻</div>
-                        <h3>Radio Broadcasting</h3>
-                        <p>Diverse radio networks delivering music, news, and local programming across multiple formats.</p>
-                        <div class="properties-list" id="radio-list"></div>
-                        <a href="radio.html" class="btn-secondary">Learn More</a>
-                    </div>
-                    <div class="company-card">
-                        <div class="card-icon">🖨️</div>
-                        <h3>Commercial Printing</h3>
-                        <p>Professional printing services supporting local businesses and organizations.</p>
-                        <div class="properties-list" id="printing-list"></div>
-                        <a href="printing.html" class="btn-secondary">Learn More</a>
-                    </div>
-                </div>
+      <section id="our-companies" class="companies-overview">
+        <div class="container">
+          <h2>Our Companies</h2>
+          <div class="companies-grid">
+            <div class="company-card">
+              <div class="card-icon">📰</div>
+              <h3>Publishing</h3>
+              <p>
+                Community newspapers serving local markets with trusted
+                journalism and comprehensive coverage.
+              </p>
+              <div class="properties-list" id="newspapers-list"></div>
+              <a href="publishing.html" class="btn-secondary">Learn More</a>
             </div>
-        </section>
+            <div class="company-card">
+              <div class="card-icon">📻</div>
+              <h3>Radio Broadcasting</h3>
+              <p>
+                Diverse radio networks delivering music, news, and local
+                programming across multiple formats.
+              </p>
+              <div class="properties-list" id="radio-list"></div>
+              <a href="radio.html" class="btn-secondary">Learn More</a>
+            </div>
+            <div class="company-card">
+              <div class="card-icon">🖨️</div>
+              <h3>Commercial Printing</h3>
+              <p>
+                Professional printing services supporting local businesses and
+                organizations.
+              </p>
+              <div class="properties-list" id="printing-list"></div>
+              <a href="printing.html" class="btn-secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="markets" class="markets">
-            <div class="container">
-                <h2>Our Markets</h2>
-                <div class="markets-grid">
-                    <div class="market-card">
-                        <h3>South Carolina</h3>
-                        <p><strong>Oconee County</strong></p>
-                        <ul>
-                            <li>The Journal (Seneca)</li>
-                            <li>The Journal Digital Press</li>
-                            <li>Edwards Printing (Westminster)</li>
-                        </ul>
-                    </div>
-                    <div class="market-card">
-                        <h3>Wyoming</h3>
-                        <p><strong>Fremont County</strong></p>
-                        <ul>
-                            <li>The Ranger (Riverton)</li>
-                            <li>The Lander Journal</li>
-                            <li>WyoToday Radio Network</li>
-                            <li>Ranger Printers</li>
-                        </ul>
-                    </div>
-                    <div class="market-card">
-                        <h3>Michigan</h3>
-                        <p><strong>Tuscola County & Beyond</strong></p>
-                        <ul>
-                            <li>The Advertiser (Caro)</li>
-                            <li>True North Radio Network (Alpena)</li>
-                            <li>Heritage Press</li>
-                        </ul>
-                    </div>
-                </div>
+      <section id="markets" class="markets">
+        <div class="container">
+          <h2>Our Markets</h2>
+          <div class="markets-grid">
+            <div class="market-card">
+              <h3>South Carolina</h3>
+              <p><strong>Oconee County</strong></p>
+              <ul>
+                <li>The Journal (Seneca)</li>
+                <li>The Journal Business Press</li>
+                <li>Edwards Printing (Westminster)</li>
+              </ul>
             </div>
-        </section>
+            <div class="market-card">
+              <h3>Wyoming</h3>
+              <p><strong>Fremont County</strong></p>
+              <ul>
+                <li>The Ranger (Riverton)</li>
+                <li>The Lander Journal</li>
+                <li>WyoToday Radio Network</li>
+                <li>Ranger Printers</li>
+              </ul>
+            </div>
+            <div class="market-card">
+              <h3>Michigan</h3>
+              <p><strong>Tuscola County & Beyond</strong></p>
+              <ul>
+                <li>The Advertiser (Caro)</li>
+                <li>True North Radio Network (Alpena)</li>
+                <li>Heritage Press</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Edwards Group Holdings</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Edwards Group Holdings is a multi-state media company committed to serving communities through quality journalism, engaging radio programming, and professional printing services. Based in Seneca, South Carolina, our company operates across three states, connecting with local audiences through trusted brands and community-focused content.</p>
-                        <p>Our mission is to inform, entertain, and serve the communities we call home. From local news coverage to commercial printing solutions, we take pride in being an integral part of the communities we serve.</p>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h4>Headquarters</h4>
-                            <p>Seneca, South Carolina</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>Markets Served</h4>
-                            <p>South Carolina, Wyoming, Michigan</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>Core Values</h4>
-                            <p>Community, Quality, Integrity</p>
-                        </div>
-                    </div>
-                </div>
+      <section id="about" class="about">
+        <div class="container">
+          <h2>About Edwards Group Holdings</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Edwards Group Holdings is a multi-state media company committed
+                to serving communities through quality journalism, engaging
+                radio programming, and professional printing services. Based in
+                Seneca, South Carolina, our company operates across three
+                states, connecting with local audiences through trusted brands
+                and community-focused content.
+              </p>
+              <p>
+                Our mission is to inform, entertain, and serve the communities
+                we call home. From local news coverage to commercial printing
+                solutions, we take pride in being an integral part of the
+                communities we serve.
+              </p>
             </div>
-        </section>
+            <div class="about-stats">
+              <div class="stat-item">
+                <h4>Headquarters</h4>
+                <p>Seneca, South Carolina</p>
+              </div>
+              <div class="stat-item">
+                <h4>Markets Served</h4>
+                <p>South Carolina, Wyoming, Michigan</p>
+              </div>
+              <div class="stat-item">
+                <h4>Core Values</h4>
+                <p>Community, Quality, Integrity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="leadership" class="leadership">
-            <div class="container">
-                <h2>Leadership Team</h2>
-                <div class="leadership-grid" id="leadership-grid">
-                </div>
-            </div>
-        </section>
+      <section id="leadership" class="leadership">
+        <div class="container">
+          <h2>Leadership Team</h2>
+          <div class="leadership-grid" id="leadership-grid"></div>
+        </div>
+      </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <h3>Corporate Headquarters</h3>
-                        <div class="contact-details" id="corporate-contact">
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <h3>General Inquiries</h3>
-                        <p>For general information about Edwards Group Holdings and our services, please contact our corporate office.</p>
-                        <a href="#careers" class="btn-primary">Career Opportunities</a>
-                    </div>
-                </div>
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <div class="contact-info">
+            <div class="contact-card">
+              <h3>Corporate Headquarters</h3>
+              <div class="contact-details" id="corporate-contact"></div>
             </div>
-        </section>
+            <div class="contact-card">
+              <h3>General Inquiries</h3>
+              <p>
+                For general information about Edwards Group Holdings and our
+                services, please contact our corporate office.
+              </p>
+              <a href="#careers" class="btn-primary">Career Opportunities</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Edwards Group Holdings</h3>
-                    <p>Excellence in Media & Communication</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Companies</h4>
-                    <ul>
-                        <li>Publishing Division</li>
-                        <li>Radio Broadcasting</li>
-                        <li>Commercial Printing</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Markets</h4>
-                    <ul>
-                        <li>South Carolina</li>
-                        <li>Wyoming</li>
-                        <li>Michigan</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#leadership">Leadership</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edwards Group Holdings. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Edwards Group Holdings</h3>
+            <p>Excellence in Media & Communication</p>
+          </div>
+          <div class="footer-section">
+            <h4>Our Companies</h4>
+            <ul>
+              <li>Publishing Division</li>
+              <li>Radio Broadcasting</li>
+              <li>Commercial Printing</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Markets</h4>
+            <ul>
+              <li>South Carolina</li>
+              <li>Wyoming</li>
+              <li>Michigan</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#leadership">Leadership</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Edwards Group Holdings. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js?v=1.1"></script>
-</body>
+  </body>
 </html>
