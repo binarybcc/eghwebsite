@@ -489,6 +489,54 @@ class EdwardsGroupWebsite {
 
         return results;
     }
+
+    setupLazyLoading() {
+        // Lazy loading for team photos and other images
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        
+        if ('IntersectionObserver' in window) {
+            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                        lazyImageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                lazyImageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+            });
+        }
+    }
+
+    // WebP support detection and implementation
+    setupWebPSupport() {
+        // Check if browser supports WebP
+        const webpSupported = (function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1;
+            canvas.height = 1;
+            return canvas.toDataURL('image/webp').indexOf('image/webp') === 5;
+        })();
+
+        if (webpSupported) {
+            // Replace image sources with WebP versions when available
+            const images = document.querySelectorAll('img[data-webp]');
+            images.forEach(img => {
+                img.src = img.dataset.webp;
+            });
+        }
+    }
 }
 
 // Initialize the website when DOM is loaded
@@ -634,52 +682,20 @@ function initializePhotoModal() {
             activePhoto.focus();
         }
     }
+}
 
-    setupLazyLoading() {
-        // Lazy loading for team photos and other images
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        
-        if ('IntersectionObserver' in window) {
-            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        img.classList.add('loaded');
-                        lazyImageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            lazyImages.forEach(img => {
-                lazyImageObserver.observe(img);
-            });
-        } else {
-            // Fallback for browsers without IntersectionObserver
-            lazyImages.forEach(img => {
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-            });
-        }
-    }
-
-    // WebP support detection and implementation
-    setupWebPSupport() {
-        // Check if browser supports WebP
-        const webpSupported = (function() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 1;
-            canvas.height = 1;
-            return canvas.toDataURL('image/webp').indexOf('image/webp') === 5;
-        })();
-
-        if (webpSupported) {
-            // Replace image sources with WebP versions when available
-            const images = document.querySelectorAll('img[data-webp]');
-            images.forEach(img => {
-                img.src = img.dataset.webp;
-            });
-        }
+// Team Section Toggle Functionality
+function toggleTeam(teamId) {
+    const teamGallery = document.getElementById(teamId);
+    const toggleIcon = document.querySelector(`[onclick="toggleTeam('${teamId}')"] .toggle-icon`);
+    
+    if (teamGallery.classList.contains('show')) {
+        teamGallery.classList.remove('show');
+        if (toggleIcon) toggleIcon.textContent = '+';
+        teamGallery.setAttribute('aria-expanded', 'false');
+    } else {
+        teamGallery.classList.add('show');
+        if (toggleIcon) toggleIcon.textContent = '−';
+        teamGallery.setAttribute('aria-expanded', 'true');
     }
 }
