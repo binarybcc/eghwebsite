@@ -86,6 +86,7 @@ class EdwardsGroupWebsite {
             
             if (char === '"') {
                 inQuotes = !inQuotes;
+                current += char; // Keep the quotes in the output
             } else if (char === ',' && !inQuotes) {
                 values.push(current);
                 current = '';
