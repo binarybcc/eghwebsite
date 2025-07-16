@@ -146,6 +146,12 @@ class EdwardsGroupWebsite {
         const container = document.getElementById('corporate-contact');
         if (!container || !this.data.corporateOffice.company_name) return;
 
+        // Skip if page has its own corporate contact implementation
+        const pagesWithOwnImplementation = ['leadership.html', 'about.html', 'contact.html'];
+        if (pagesWithOwnImplementation.some(page => window.location.pathname.includes(page))) {
+            return;
+        }
+
         container.innerHTML = `
             <p><strong>${this.data.corporateOffice.company_name}</strong></p>
             <p>${this.data.corporateOffice.street_address}</p>
@@ -579,18 +585,3 @@ function initializePhotoModal() {
     }
 }
 
-// Team Section Toggle Functionality
-function toggleTeam(teamId) {
-    const teamGallery = document.getElementById(teamId);
-    const toggleIcon = document.querySelector(`[onclick="toggleTeam('${teamId}')"] .toggle-icon`);
-    
-    if (teamGallery.classList.contains('show')) {
-        teamGallery.classList.remove('show');
-        if (toggleIcon) toggleIcon.textContent = '+';
-        teamGallery.setAttribute('aria-expanded', 'false');
-    } else {
-        teamGallery.classList.add('show');
-        if (toggleIcon) toggleIcon.textContent = '−';
-        teamGallery.setAttribute('aria-expanded', 'true');
-    }
-}

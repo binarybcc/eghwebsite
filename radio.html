@@ -432,16 +432,26 @@
     <script>
         // Radio-specific functionality
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.edwardsGroup) {
-                populateNetworksGrid();
+            // Use CSV manager for reliable data loading
+            if (window.csvManager) {
+                window.csvManager.onReady((data, state) => {
+                    if (!state.hasError) {
+                        populateNetworksGrid();
+                    } else {
+                        console.error('Failed to load CSV data for radio page:', state.errors);
+                    }
+                });
             }
         });
 
         function populateNetworksGrid() {
             const container = document.getElementById('networks-grid');
-            if (!container || !window.edwardsGroup.data.radioNetworks.length) return;
+            if (!container || !window.csvManager.isDataReady()) return;
 
-            window.edwardsGroup.data.radioNetworks.forEach(network => {
+            const radioNetworks = window.csvManager.getDataset('radioNetworks');
+            if (!radioNetworks.length) return;
+
+            radioNetworks.forEach(network => {
                 const card = document.createElement('div');
                 card.className = 'network-card';
                 

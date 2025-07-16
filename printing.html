@@ -565,17 +565,26 @@
     <script>
       // Printing-specific functionality
       document.addEventListener("DOMContentLoaded", function () {
-        if (window.edwardsGroup) {
-          populateCompaniesGrid();
+        // Use CSV manager for reliable data loading
+        if (window.csvManager) {
+          window.csvManager.onReady((data, state) => {
+            if (!state.hasError) {
+              populateCompaniesGrid();
+            } else {
+              console.error('Failed to load CSV data for printing page:', state.errors);
+            }
+          });
         }
       });
 
       function populateCompaniesGrid() {
         const container = document.getElementById("companies-grid");
-        if (!container || !window.edwardsGroup.data.printingCompanies.length)
-          return;
+        if (!container || !window.csvManager.isDataReady()) return;
 
-        window.edwardsGroup.data.printingCompanies.forEach((company) => {
+        const printingCompanies = window.csvManager.getDataset('printingCompanies');
+        if (!printingCompanies.length) return;
+
+        printingCompanies.forEach((company) => {
           const card = document.createElement("div");
           card.className = "company-card";
           card.innerHTML = `
