@@ -11,7 +11,7 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" />
     <link rel="preload" href="script.js" as="script" />
-    
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -57,7 +57,7 @@
             </p>
             <div class="hero-stats">
               <div class="stat">
-                <h3>4</h3>
+                <h3>5</h3>
                 <p>Printing Companies</p>
               </div>
               <div class="stat">
@@ -513,7 +513,9 @@
                 </div>
               </div>
 
-              <a href="contact.html#contact-form" class="btn-primary">Request Quote</a>
+              <a href="contact.html#contact-form" class="btn-primary"
+                >Request Quote</a
+              >
             </div>
           </div>
         </div>
@@ -571,7 +573,10 @@
             if (!state.hasError) {
               populateCompaniesGrid();
             } else {
-              console.error('Failed to load CSV data for printing page:', state.errors);
+              console.error(
+                "Failed to load CSV data for printing page:",
+                state.errors
+              );
             }
           });
         }
@@ -581,7 +586,8 @@
         const container = document.getElementById("companies-grid");
         if (!container || !window.csvManager.isDataReady()) return;
 
-        const printingCompanies = window.csvManager.getDataset('printingCompanies');
+        const printingCompanies =
+          window.csvManager.getDataset("printingCompanies");
         if (!printingCompanies.length) return;
 
         printingCompanies.forEach((company) => {

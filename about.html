@@ -11,7 +11,7 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" />
     <link rel="preload" href="script.js" as="script" />
-    
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -91,7 +91,7 @@
             </div>
             <div class="story-stats">
               <div class="stat-item">
-                <h3>4</h3>
+                <h3>5</h3>
                 <p>Community Newspapers</p>
               </div>
               <div class="stat-item">
@@ -441,7 +441,10 @@
             if (!state.hasError) {
               populateCorporateDetails();
             } else {
-              console.error('Failed to load CSV data for about page:', state.errors);
+              console.error(
+                "Failed to load CSV data for about page:",
+                state.errors
+              );
             }
           });
         }
