@@ -128,6 +128,9 @@ class EdwardsGroupWebsite {
         const container = document.getElementById('leadership-grid');
         if (!container || !this.data.leadership.length) return;
 
+        // Skip if on leadership.html page (has its own detailed implementation)
+        if (window.location.pathname.includes('leadership.html')) return;
+
         this.data.leadership.forEach(leader => {
             const card = document.createElement('div');
             card.className = 'leadership-card';
