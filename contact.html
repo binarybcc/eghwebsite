@@ -470,26 +470,31 @@
       </div>
     </footer>
 
+    <script src="csv-manager.js" defer></script>
     <script src="script.js?v=1.1" defer></script>
     <script>
       // Contact page specific functionality
       document.addEventListener("DOMContentLoaded", function () {
-        if (window.edwardsGroup) {
-          populateCorporateDetails();
-          populateDivisionContacts();
+        // Use CSV manager for reliable data loading
+        if (window.csvManager) {
+          window.csvManager.onReady((data, state) => {
+            if (!state.hasError) {
+              populateCorporateDetails();
+              populateDivisionContacts();
+            } else {
+              console.error('Failed to load CSV data for contact page:', state.errors);
+            }
+          });
         }
         setupContactForm();
       });
 
       function populateCorporateDetails() {
         const container = document.getElementById("corporate-contact");
-        if (
-          !container ||
-          !window.edwardsGroup.data.corporateOffice.company_name
-        )
-          return;
+        if (!container || !window.csvManager.isDataReady()) return;
 
-        const office = window.edwardsGroup.data.corporateOffice;
+        const office = window.csvManager.getCorporateOffice();
+        if (!office.company_name) return;
         container.innerHTML = `
                 <p><strong>Address:</strong></p>
                 <p>${office.street_address}</p>
@@ -509,9 +514,10 @@
         const newspapersContainer = document.getElementById(
           "newspapers-contacts"
         );
-        if (newspapersContainer && window.edwardsGroup.data.newspapers.length) {
+        const newspapers = window.csvManager.getDataset('newspapers');
+        if (newspapersContainer && newspapers.length) {
           let html = '<div class="contacts-list">';
-          window.edwardsGroup.data.newspapers.forEach((newspaper) => {
+          newspapers.forEach((newspaper) => {
             html += `
                         <div class="contact-item">
                             <h5>${newspaper.newspaper_name}</h5>
@@ -531,9 +537,10 @@
 
         // Populate radio contacts
         const radioContainer = document.getElementById("radio-contacts");
-        if (radioContainer && window.edwardsGroup.data.radioNetworks.length) {
+        const radioNetworks = window.csvManager.getDataset('radioNetworks');
+        if (radioContainer && radioNetworks.length) {
           let html = '<div class="contacts-list">';
-          window.edwardsGroup.data.radioNetworks.forEach((network) => {
+          radioNetworks.forEach((network) => {
             html += `
                         <div class="contact-item">
                             <h5>${network.radio_network}</h5>
@@ -553,12 +560,10 @@
 
         // Populate printing contacts
         const printingContainer = document.getElementById("printing-contacts");
-        if (
-          printingContainer &&
-          window.edwardsGroup.data.printingCompanies.length
-        ) {
+        const printingCompanies = window.csvManager.getDataset('printingCompanies');
+        if (printingContainer && printingCompanies.length) {
           let html = '<div class="contacts-list">';
-          window.edwardsGroup.data.printingCompanies.forEach((company) => {
+          printingCompanies.forEach((company) => {
             html += `
                         <div class="contact-item">
                             <h5>${company.printing_company}</h5>

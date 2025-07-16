@@ -14,6 +14,7 @@ class EdwardsGroupWebsite {
 
     async init() {
         try {
+            // Wait for CSV data to be ready
             await this.loadData();
             this.populateContent();
             this.setupEventListeners();
@@ -26,77 +27,16 @@ class EdwardsGroupWebsite {
 
     async loadData() {
         try {
-            const [newspapers, radioNetworks, printingCompanies, leadership, corporateOffice] = await Promise.all([
-                this.loadCSV('newspapers.csv'),
-                this.loadCSV('radio_networks.csv'),
-                this.loadCSV('printing_companies.csv'),
-                this.loadCSV('leadership.csv'),
-                this.loadCSV('corporate_office.csv')
-            ]);
-
-            this.data.newspapers = newspapers;
-            this.data.radioNetworks = radioNetworks;
-            this.data.printingCompanies = printingCompanies;
-            this.data.leadership = leadership;
-            this.data.corporateOffice = corporateOffice[0] || {};
+            // Use CSV manager instead of direct loading
+            const result = await window.csvManager.waitForReady();
+            this.data = result.data;
+            
+            if (result.state.hasError) {
+                console.warn('CSV data loaded with errors:', result.state.errors);
+            }
         } catch (error) {
             console.error('Error loading CSV data:', error);
         }
-    }
-
-    async loadCSV(filename) {
-        try {
-            const response = await fetch(filename + '?t=' + Date.now());
-            const text = await response.text();
-            return this.parseCSV(text);
-        } catch (error) {
-            console.error(`Error loading ${filename}:`, error);
-            return [];
-        }
-    }
-
-    parseCSV(text) {
-        const lines = text.trim().split('\n');
-        if (lines.length < 2) return [];
-
-        const headers = lines[0].split(',').map(h => h.trim());
-        const data = [];
-
-        for (let i = 1; i < lines.length; i++) {
-            const values = this.parseCSVLine(lines[i]);
-            if (values.length === headers.length) {
-                const row = {};
-                headers.forEach((header, index) => {
-                    row[header] = values[index].trim();
-                });
-                data.push(row);
-            }
-        }
-
-        return data;
-    }
-
-    parseCSVLine(line) {
-        const values = [];
-        let current = '';
-        let inQuotes = false;
-
-        for (let i = 0; i < line.length; i++) {
-            const char = line[i];
-            
-            if (char === '"') {
-                inQuotes = !inQuotes;
-                current += char; // Keep the quotes in the output
-            } else if (char === ',' && !inQuotes) {
-                values.push(current);
-                current = '';
-            } else {
-                current += char;
-            }
-        }
-        
-        values.push(current);
-        return values;
     }
 
     populateContent() {
@@ -420,74 +360,26 @@ class EdwardsGroupWebsite {
         }, 5000);
     }
 
-    // Utility methods for data access
+    // Utility methods for data access - delegate to CSV manager
     getNewspapersByState(state) {
-        return this.data.newspapers.filter(newspaper => newspaper.state === state);
+        return window.csvManager.getNewspapersByState(state);
     }
 
     getRadioNetworksByState(state) {
-        return this.data.radioNetworks.filter(network => network.state === state);
+        return window.csvManager.getRadioNetworksByState(state);
     }
 
     getPrintingCompaniesByState(state) {
-        return this.data.printingCompanies.filter(company => company.state === state);
+        return window.csvManager.getPrintingCompaniesByState(state);
     }
 
     getLeadershipByPosition(position) {
-        return this.data.leadership.filter(leader => leader.position.toLowerCase().includes(position.toLowerCase()));
+        return window.csvManager.getLeadershipByPosition(position);
     }
 
     // Search functionality
     searchProperties(query) {
-        const results = [];
-        const searchTerm = query.toLowerCase();
-
-        // Search newspapers
-        this.data.newspapers.forEach(newspaper => {
-            if (newspaper.newspaper_name.toLowerCase().includes(searchTerm) ||
-                newspaper.city.toLowerCase().includes(searchTerm) ||
-                newspaper.state.toLowerCase().includes(searchTerm)) {
-                results.push({
-                    type: 'newspaper',
-                    name: newspaper.newspaper_name,
-                    location: `${newspaper.city}, ${newspaper.state}`,
-                    website: newspaper.website,
-                    data: newspaper
-                });
-            }
-        });
-
-        // Search radio networks
-        this.data.radioNetworks.forEach(network => {
-            if (network.radio_network.toLowerCase().includes(searchTerm) ||
-                network.city.toLowerCase().includes(searchTerm) ||
-                network.state.toLowerCase().includes(searchTerm)) {
-                results.push({
-                    type: 'radio',
-                    name: network.radio_network,
-                    location: `${network.city}, ${network.state}`,
-                    website: network.website,
-                    data: network
-                });
-            }
-        });
-
-        // Search printing companies
-        this.data.printingCompanies.forEach(company => {
-            if (company.printing_company.toLowerCase().includes(searchTerm) ||
-                company.city.toLowerCase().includes(searchTerm) ||
-                company.state.toLowerCase().includes(searchTerm)) {
-                results.push({
-                    type: 'printing',
-                    name: company.printing_company,
-                    location: `${company.city}, ${company.state}`,
-                    website: company.website,
-                    data: company
-                });
-            }
-        });
-
-        return results;
+        return window.csvManager.searchProperties(query);
     }
 
     setupLazyLoading() {

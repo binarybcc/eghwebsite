@@ -246,21 +246,32 @@
         </div>
     </footer>
 
+    <script src="csv-manager.js" defer></script>
     <script src="script.js?v=1.1" defer></script>
     <script>
         // Leadership page specific functionality
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.edwardsGroup) {
-                populateLeadershipGrid();
-                populateCorporateContact();
+            // Use CSV manager for reliable data loading
+            if (window.csvManager) {
+                window.csvManager.onReady((data, state) => {
+                    if (!state.hasError) {
+                        populateLeadershipGrid();
+                        populateCorporateContact();
+                    } else {
+                        console.error('Failed to load CSV data for leadership page:', state.errors);
+                    }
+                });
             }
         });
 
         function populateLeadershipGrid() {
             const container = document.getElementById('leadership-grid');
-            if (!container || !window.edwardsGroup.data.leadership.length) return;
+            if (!container || !window.csvManager.isDataReady()) return;
 
-            window.edwardsGroup.data.leadership.forEach(leader => {
+            const leadership = window.csvManager.getDataset('leadership');
+            if (!leadership.length) return;
+
+            leadership.forEach(leader => {
                 const card = document.createElement('div');
                 card.className = 'leadership-detail-card';
                 card.innerHTML = `
@@ -294,9 +305,10 @@
 
         function populateCorporateContact() {
             const container = document.getElementById('corporate-contact');
-            if (!container || !window.edwardsGroup.data.corporateOffice.company_name) return;
+            if (!container || !window.csvManager.isDataReady()) return;
 
-            const office = window.edwardsGroup.data.corporateOffice;
+            const office = window.csvManager.getCorporateOffice();
+            if (!office.company_name) return;
             container.innerHTML = `
                 <p><strong>${office.company_name}</strong></p>
                 <p>${office.street_address}</p>

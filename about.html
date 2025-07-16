@@ -430,24 +430,29 @@
       </div>
     </footer>
 
+    <script src="csv-manager.js" defer></script>
     <script src="script.js?v=1.1" defer></script>
     <script>
       // About page specific functionality
       document.addEventListener("DOMContentLoaded", function () {
-        if (window.edwardsGroup) {
-          populateCorporateDetails();
+        // Use CSV manager for reliable data loading
+        if (window.csvManager) {
+          window.csvManager.onReady((data, state) => {
+            if (!state.hasError) {
+              populateCorporateDetails();
+            } else {
+              console.error('Failed to load CSV data for about page:', state.errors);
+            }
+          });
         }
       });
 
       function populateCorporateDetails() {
         const container = document.getElementById("corporate-contact");
-        if (
-          !container ||
-          !window.edwardsGroup.data.corporateOffice.company_name
-        )
-          return;
+        if (!container || !window.csvManager.isDataReady()) return;
 
-        const office = window.edwardsGroup.data.corporateOffice;
+        const office = window.csvManager.getCorporateOffice();
+        if (!office.company_name) return;
         container.innerHTML = `
                 <p><strong>${office.company_name}</strong></p>
                 <p>${office.street_address}</p>
