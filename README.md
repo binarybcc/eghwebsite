@@ -58,12 +58,11 @@ The website dynamically loads content from CSV files:
 - `leadership.csv` - Executive team members
 - `corporate_office.csv` - Corporate headquarters information
 
-## Setup Instructions
+## Quick Start
 
 ### Local Development
-1. Clone or download the project files
-2. Ensure all files are in the same directory
-3. Start a local web server:
+1. Download or clone the project files
+2. Start a local web server:
    ```bash
    # Using Python 3
    python3 -m http.server 8000
@@ -74,13 +73,16 @@ The website dynamically loads content from CSV files:
    # Using Node.js (if you have http-server installed)
    npx http-server
    ```
-4. Open your browser to `http://localhost:8000`
+3. Open your browser to `http://localhost:8000`
 
 ### Deployment
-1. Upload all files to your web server
-2. Ensure the CSV files are accessible from the same domain
-3. Configure your web server to serve static files
-4. Test all functionality including CSV data loading
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+**Quick Deploy Options:**
+- **Netlify**: Drag and drop the project folder
+- **Vercel**: Install CLI and run `vercel`
+- **GitHub Pages**: Upload to repository and enable Pages
+- **Traditional hosting**: Upload files via FTP/SFTP
 
 ## Browser Support
 - Chrome, Firefox, Safari, Edge (latest 2 versions)
@@ -168,13 +170,11 @@ eghwebsite/
 ├── newspapers.csv           # Newspaper properties
 ├── radio_networks.csv       # Radio station data
 ├── printing_companies.csv   # Printing company data
-├── /assets                  # Images and Photos
+├── /assets/                 # Images and Photos
 ├── CLAUDE.md                # Development notes and technical documentation
+├── DEPLOYMENT.md            # Deployment instructions
 └── README.md               # This file
 ```
-
-> **Note**: For detailed development information, asset naming conventions, and technical implementation notes, see [CLAUDE.md](CLAUDE.md).
-
 
 ## Development Notes
 
@@ -204,8 +204,24 @@ eghwebsite/
 - Employee portal functionality
 - E-commerce capabilities for printing services
 
+## Asset Management
+
+### Image Naming Convention
+Assets follow a strict naming convention based on company/location:
+- **tj-*** - The Journal (Seneca, SC)
+- **tr-*** - The Ranger (Riverton, WY)
+- **wy-*** - WyoToday Network (Riverton, WY)
+- **egh-*** - Corporate branding assets
+- **Cote-*** - Corporate/Leadership photos
+
+For detailed asset management information, see [CLAUDE.md](CLAUDE.md).
+
 ## License
 © 2024 Edwards Group Holdings. All rights reserved.
 
 ## Support
 For technical support or website updates, contact the IT Director through the corporate office or use the contact form on the website.
+
+---
+
+*Edwards Group Holdings - Connecting communities across South Carolina, Wyoming, and Michigan through quality journalism, engaging radio programming, and professional printing services.*
