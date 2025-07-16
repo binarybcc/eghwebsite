@@ -366,7 +366,7 @@
           <div class="corporate-grid">
             <div class="corporate-card">
               <h3>Headquarters</h3>
-              <div class="corporate-details" id="corporate-details"></div>
+              <div class="corporate-details" id="corporate-contact"></div>
             </div>
             <div class="corporate-card">
               <h3>Leadership</h3>
@@ -440,7 +440,7 @@
       });
 
       function populateCorporateDetails() {
-        const container = document.getElementById("corporate-details");
+        const container = document.getElementById("corporate-contact");
         if (
           !container ||
           !window.edwardsGroup.data.corporateOffice.company_name
