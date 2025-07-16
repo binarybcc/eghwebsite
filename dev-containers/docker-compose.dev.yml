@@ -1,0 +1,122 @@
+version: '3.8'
+
+# Development Containers Library
+# Quick access to common development tools
+
+services:
+  # Node.js Development Environment
+  nodejs:
+    image: node:18-alpine
+    container_name: dev-nodejs
+    working_dir: /workspace
+    volumes:
+      - ../:/workspace
+      - node_modules:/workspace/node_modules
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    command: sh -c "npm install && tail -f /dev/null"
+    networks:
+      - dev-network
+    profiles:
+      - nodejs
+
+  # Python Development Environment
+  python:
+    image: python:3.11-alpine
+    container_name: dev-python
+    working_dir: /workspace
+    volumes:
+      - ../:/workspace
+      - pip_cache:/root/.cache/pip
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    command: sh -c "pip install -r requirements.txt 2>/dev/null || true && tail -f /dev/null"
+    networks:
+      - dev-network
+    profiles:
+      - python
+
+  # PHP Development Environment (for contact forms)
+  php:
+    image: php:8.2-apache
+    container_name: dev-php
+    working_dir: /var/www/html
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - "8082:80"
+    networks:
+      - dev-network
+    profiles:
+      - php
+
+  # Database (MySQL)
+  mysql:
+    image: mysql:8.0
+    container_name: dev-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: egh_website
+      MYSQL_USER: egh_user
+      MYSQL_PASSWORD: egh_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - dev-network
+    profiles:
+      - database
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: dev-redis
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - dev-network
+    profiles:
+      - redis
+
+  # Nginx for advanced web server testing
+  nginx:
+    image: nginx:alpine
+    container_name: dev-nginx
+    volumes:
+      - ../:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8081:80"
+    networks:
+      - dev-network
+    profiles:
+      - nginx
+
+  # Development tools container with common utilities
+  dev-tools:
+    image: alpine:latest
+    container_name: dev-tools-advanced
+    working_dir: /workspace
+    volumes:
+      - ../:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: sh -c "apk add --no-cache curl git vim nano htop && tail -f /dev/null"
+    networks:
+      - dev-network
+    profiles:
+      - tools
+
+networks:
+  dev-network:
+    driver: bridge
+
+volumes:
+  node_modules:
+  pip_cache:
+  mysql_data:
+  redis_data:
