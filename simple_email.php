@@ -96,10 +96,38 @@ if (!empty($errors)) {
     exit;
 }
 
-// Email configuration
-$to_email = 'jcorbin@upstatetoday.com';
+// Email configuration - route based on subject and location
 $from_email = 'noreply@edwards-group.com';
 $from_name = 'Edwards Group Holdings';
+
+// Email routing based on subject and location
+function getDestinationEmail($subject, $location) {
+    // Subject-based routing (primary)
+    $subject_emails = [
+        'general' => 'jcorbin@upstatetoday.com',
+        'advertising' => 'jcorbin@upstatetoday.com', 
+        'news' => 'jcorbin@upstatetoday.com',
+        'printing' => 'jcorbin@upstatetoday.com',
+        'radio' => 'jcorbin@upstatetoday.com',
+        'careers' => 'jcorbin@upstatetoday.com',
+        'technical' => 'jcorbin@upstatetoday.com',
+        'other' => 'jcorbin@upstatetoday.com'
+    ];
+    
+    // Location-based routing (secondary)
+    $location_emails = [
+        'corporate' => 'jcorbin@upstatetoday.com',
+        'sc' => 'jcorbin@upstatetoday.com',
+        'wy' => 'jcorbin@upstatetoday.com', 
+        'mi' => 'jcorbin@upstatetoday.com',
+        '' => 'jcorbin@upstatetoday.com' // default for no location specified
+    ];
+    
+    // Use subject-based routing primarily, fall back to location
+    return $subject_emails[$subject] ?? $location_emails[$location] ?? 'jcorbin@upstatetoday.com';
+}
+
+$to_email = getDestinationEmail($subject, $location);
 
 // Subject mapping
 $subject_mapping = [
