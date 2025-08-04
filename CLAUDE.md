@@ -99,7 +99,7 @@ eghwebsite/
 |---------|----------|------|--------------|---------|
 | The Journal | Seneca, SC | tj- | publishing.html | ✅ Available |
 | The Ranger | Riverton, WY | tr- | publishing.html | ✅ Available |
-| The Advertiser | Caro, MI | ta- | publishing.html | ❌ Needed |
+| The Advertiser | Caro, MI | ta- | publishing.html | ✅ Available |
 | The Lander Journal | Lander, WY | lj- | publishing.html | ❌ Needed |
 
 ### Radio Division  
