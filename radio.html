@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Division - Edwards Group Holdings</title>
     <meta name="description" content="Edwards Group Holdings Radio Division - 10 radio stations across 3 networks serving Wyoming and Michigan with diverse programming.">
+    
+    <!-- Security Headers via Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" />
     <link rel="preload" href="script.js" as="script" />
@@ -275,7 +281,15 @@
                         <div class="team-grid">
                             <div class="team-member">
                                 <div class="member-photo">
-                                    <img src="assets/wy-allstaff.jpg" alt="WyoToday Network full staff team photo" class="team-photo">
+                                    <img 
+                                        src="assets/responsive/wy-allstaff.webp"
+                                        srcset="assets/responsive/wy-allstaff-400.webp 400w,
+                                                assets/responsive/wy-allstaff-600.webp 600w,
+                                                assets/responsive/wy-allstaff.webp 800w"
+                                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                                        alt="WyoToday Network full staff team photo" 
+                                        class="team-photo"
+                                        loading="lazy">
                                 </div>
                                 <div class="member-info">
                                     <h4>Full Team</h4>

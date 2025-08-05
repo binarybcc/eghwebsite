@@ -8,11 +8,120 @@
       name="description"
       content="Contact Edwards Group Holdings - Reach our corporate office or local operations across South Carolina, Wyoming, and Michigan."
     />
+    
+    <!-- Security Headers via Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" />
     <link rel="preload" href="script.js" as="script" />
     
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured Data (JSON-LD) for Contact Information -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Edwards Group Holdings",
+      "url": "https://edwards-group.com",
+      "description": "Contact Edwards Group Holdings - Corporate office and local operations across South Carolina, Wyoming, and Michigan.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "125 Eagles Nest Dr",
+        "addressLocality": "Seneca",
+        "addressRegion": "SC",
+        "postalCode": "29678",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-864-882-3272",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-864-882-3272",
+          "contactType": "corporate headquarters",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-864-882-2375",
+          "contactType": "publishing division",
+          "description": "The Journal - Seneca, SC",
+          "areaServed": "South Carolina"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-307-856-2277",
+          "contactType": "publishing division",
+          "description": "The Ranger & Lander Journal - Wyoming",
+          "areaServed": "Wyoming"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-989-673-3181",
+          "contactType": "publishing division",
+          "description": "The Advertiser - Caro, MI",
+          "areaServed": "Michigan"
+        }
+      ],
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Corporate Headquarters",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "125 Eagles Nest Dr",
+            "addressLocality": "Seneca",
+            "addressRegion": "SC",
+            "postalCode": "29678",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-864-882-3272"
+        },
+        {
+          "@type": "Place",
+          "name": "The Journal Office",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "210 W North 1st Street",
+            "addressLocality": "Seneca",
+            "addressRegion": "SC",
+            "postalCode": "29678",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-864-882-2375"
+        },
+        {
+          "@type": "Place",
+          "name": "The Ranger Office",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Riverton",
+            "addressRegion": "WY",
+            "postalCode": "82501",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-307-856-2277"
+        },
+        {
+          "@type": "Place",
+          "name": "The Advertiser Office",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "344 N State St",
+            "addressLocality": "Caro",
+            "addressRegion": "MI",
+            "postalCode": "48723",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-989-673-3181"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header>

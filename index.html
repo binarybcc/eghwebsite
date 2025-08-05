@@ -8,6 +8,12 @@
       name="description"
       content="Edwards Group Holdings - Leading media company with newspapers, radio stations, and printing services across South Carolina, Wyoming, and Michigan."
     />
+    
+    <!-- Security Headers via Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style" />
@@ -18,6 +24,154 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Edwards Group Holdings",
+      "url": "https://edwards-group.com",
+      "logo": "https://edwards-group.com/assets/egh-logo-gold.png",
+      "description": "Leading media company with newspapers, radio stations, and printing services across South Carolina, Wyoming, and Michigan.",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "125 Eagles Nest Dr",
+          "addressLocality": "Seneca",
+          "addressRegion": "SC",
+          "postalCode": "29678",
+          "addressCountry": "US"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "125 Eagles Nest Dr",
+        "addressLocality": "Seneca",
+        "addressRegion": "SC",
+        "postalCode": "29678",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-864-882-3272",
+      "sameAs": [
+        "https://upstatetoday.com",
+        "https://rivertonranger.com",
+        "https://thelanderjournal.com",
+        "https://tuscolatoday.com"
+      ],
+      "subOrganization": [
+        {
+          "@type": "NewsMediaOrganization",
+          "name": "The Journal",
+          "url": "https://upstatetoday.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "210 W North 1st Street",
+            "addressLocality": "Seneca",
+            "addressRegion": "SC",
+            "postalCode": "29678",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-864-882-2375",
+          "areaServed": {
+            "@type": "State",
+            "name": "South Carolina"
+          }
+        },
+        {
+          "@type": "NewsMediaOrganization",
+          "name": "The Ranger",
+          "url": "https://rivertonranger.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Riverton",
+            "addressRegion": "WY",
+            "postalCode": "82501",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-307-856-2277",
+          "areaServed": {
+            "@type": "State",
+            "name": "Wyoming"
+          }
+        },
+        {
+          "@type": "NewsMediaOrganization",
+          "name": "The Lander Journal",
+          "url": "https://thelanderjournal.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lander",
+            "addressRegion": "WY",
+            "postalCode": "82501",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-307-856-2277",
+          "areaServed": {
+            "@type": "State",
+            "name": "Wyoming"
+          }
+        },
+        {
+          "@type": "NewsMediaOrganization",
+          "name": "The Advertiser",
+          "url": "https://tuscolatoday.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "344 N State St",
+            "addressLocality": "Caro",
+            "addressRegion": "MI",
+            "postalCode": "48723",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-989-673-3181",
+          "areaServed": {
+            "@type": "State",
+            "name": "Michigan"
+          }
+        }
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Jerry Edwards",
+          "jobTitle": "CEO"
+        },
+        {
+          "@type": "Person",
+          "name": "Harold \"Hal\" Welch",
+          "jobTitle": "COO"
+        },
+        {
+          "@type": "Person",
+          "name": "Sherry Hennes",
+          "jobTitle": "CFO"
+        }
+      ],
+      "knowsAbout": [
+        "Newspaper Publishing",
+        "Radio Broadcasting",
+        "Commercial Printing",
+        "Local Journalism",
+        "Community Media"
+      ],
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "South Carolina"
+        },
+        {
+          "@type": "State",
+          "name": "Wyoming"
+        },
+        {
+          "@type": "State",
+          "name": "Michigan"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header>
@@ -27,7 +181,11 @@
             <div class="brand-container">
               <div class="logo-container">
                 <img
-                  src="assets/egh-logo-gold.png"
+                  src="assets/egh-logo-gold.webp"
+                  srcset="assets/responsive/egh-logo-gold-200.webp 200w,
+                          assets/responsive/egh-logo-gold-400.webp 400w,
+                          assets/egh-logo-gold.webp 257w"
+                  sizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 200px"
                   alt="Edwards Group Holdings Logo"
                   class="brand-logo"
                   loading="eager"
