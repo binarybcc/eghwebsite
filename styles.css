@@ -827,7 +827,7 @@ a:focus, button:focus {
 /* Team photo styles for actual photos */
 .team-photo {
     width: 100%;
-    height: 200px;
+    height: 280px;
     object-fit: cover;
     object-position: center top;
     border-radius: var(--border-radius);
@@ -910,7 +910,7 @@ a:focus, button:focus {
     }
 
     .team-photo {
-        height: 150px;
+        height: 210px;
     }
 }
 
@@ -920,7 +920,7 @@ a:focus, button:focus {
     }
 
     .team-photo {
-        height: 120px;
+        height: 170px;
     }
 }
 

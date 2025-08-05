@@ -30,12 +30,12 @@ Assets in the `/assets` folder follow a strict naming convention based on compan
 ### Team Photos Status
 
 **Currently Available:**
-- **The Journal (tj-)**: tj-allstaff-sidewalk.jpg, tj-allstaff-stairs.jpg, tj-frontdesk01.jpg
-- **WyoToday (wy-)**: wy-allstaff.jpg, wy-staff.jpg, wy-staff00.jpg  
-- **The Ranger (tr-)**: tr-kshields.jpg, tr-pressmen.jpg, tr-pressmen01.jpg, tr-rstover.jpg
+- **The Journal (tj-)**: 15 team photos covering all departments and workspaces
+- **WyoToday (wy-)**: wy-allstaff.jpg, wy-staff.jpg, wy-staff00.jpg, wy-kshields.webp  
+- **The Ranger (tr-)**: tr-kshields.webp, tr-pressmen.jpg, tr-pressmen01.jpg, tr-rstover.webp
+- **The Advertiser (ta-)**: 17 individual team member photos (portrait format, WebP optimized)
 
 **Photos Needed (Future):**
-- **The Advertiser (ta-)**: No photos available yet
 - **The Lander Journal (lj-)**: No photos available yet
 - **True North Radio Network (tn-)**: No photos available yet
 - **Edwards Printing (ep-)**: No photos available yet
@@ -71,10 +71,28 @@ eghwebsite/
 - **Leadership**: leadership.csv
 - **Corporate Office**: corporate_office.csv
 
+### Recent Updates (2025-01-05)
+
+**Image Optimization Completed:**
+- All Advertiser (ta-) team photos converted to WebP format and resized to 800px wide
+- EXIF data stripped from all ta- images for privacy and performance
+- Portrait orientation enforced for all team member photos
+- tr-kshields.webp and tr-rstover.webp converted and optimized
+
+**Publishing Page Enhancements:**
+- Added all 15 tj- department photos to The Journal team section  
+- Increased team photo height from 200px to 280px (desktop) to prevent head cropping
+- Responsive breakpoints updated: 210px (tablet), 170px (mobile)
+- Team captions cleared for future customization
+
+**File Management:**
+- ta-LandynSchott2.webp renamed (space removed) and properly referenced
+- tj-logo-bw.webp removed from team display (kept in assets)
+
 ### Team Photo Implementation
 
 **CSS Classes:**
-- `.team-photo` - Main photo styling (200px height desktop, responsive)
+- `.team-photo` - Main photo styling (280px height desktop, responsive)
 - `.photo-placeholder` - Fallback for missing photos
 - `.team-sections` - Container for all team sections
 - `.team-toggle` - Clickable header with expand/collapse
@@ -88,9 +106,9 @@ eghwebsite/
 - Keyboard navigation support
 
 **Responsive Breakpoints:**
-- Desktop: 200px photo height
-- Tablet (768px): 150px photo height  
-- Mobile (480px): 120px photo height
+- Desktop: 280px photo height (updated for portrait images)
+- Tablet (768px): 210px photo height (updated)
+- Mobile (480px): 170px photo height (updated)
 
 ## Company Structure & Mapping
 
