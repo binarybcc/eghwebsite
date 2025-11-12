@@ -33,4 +33,4 @@ private_key.pem
 
 # Backup Files
 *.bak
-*.backup
+*.backup.DS_Store
