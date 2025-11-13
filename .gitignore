@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.production
+makeenv.txt
 
 # System Files
 .DS_Store
@@ -33,4 +34,5 @@ private_key.pem
 
 # Backup Files
 *.bak
-*.backup.DS_Store
+*.backup
+backups/
