@@ -262,7 +262,27 @@ header {
 /* Companies Overview */
 .companies-overview {
     padding: 4rem 0;
-    background-color: var(--background-light);
+    background: linear-gradient(135deg,
+        #f7fafc 0%,
+        #edf2f7 50%,
+        #f7fafc 100%);
+    position: relative;
+}
+
+.companies-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%,
+        rgba(49, 130, 206, 0.03) 0%,
+        transparent 50%),
+        radial-gradient(circle at 80% 80%,
+        rgba(26, 54, 93, 0.03) 0%,
+        transparent 50%);
+    pointer-events: none;
 }
 
 .companies-overview h2 {
@@ -331,6 +351,24 @@ header {
 /* Markets Section */
 .markets {
     padding: 4rem 0;
+    background: linear-gradient(120deg,
+        #ffffff 0%,
+        #f7fafc 50%,
+        #edf2f7 100%);
+    position: relative;
+}
+
+.markets::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%,
+        rgba(49, 130, 206, 0.02) 0%,
+        transparent 60%);
+    pointer-events: none;
 }
 
 .markets h2 {
@@ -387,7 +425,24 @@ header {
 /* About Section */
 .about {
     padding: 4rem 0;
-    background-color: var(--background-light);
+    background: radial-gradient(ellipse at top,
+        #edf2f7 0%,
+        #f7fafc 50%,
+        #e2e8f0 100%);
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%,
+        rgba(49, 130, 206, 0.04) 0%,
+        transparent 60%);
+    pointer-events: none;
 }
 
 .about h2 {
@@ -438,6 +493,29 @@ header {
 /* Leadership Section */
 .leadership {
     padding: 4rem 0;
+    background: linear-gradient(160deg,
+        #ffffff 0%,
+        #f7fafc 40%,
+        #edf2f7 70%,
+        #f7fafc 100%);
+    position: relative;
+}
+
+.leadership::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(26, 54, 93, 0.025) 0%,
+            transparent 40%),
+        radial-gradient(circle at 85% 70%,
+            rgba(49, 130, 206, 0.025) 0%,
+            transparent 40%);
+    pointer-events: none;
 }
 
 .leadership h2 {
@@ -481,7 +559,29 @@ header {
 /* Contact Section */
 .contact {
     padding: 4rem 0;
-    background-color: var(--background-light);
+    background: linear-gradient(145deg,
+        #f7fafc 0%,
+        #edf2f7 30%,
+        #f7fafc 60%,
+        #e2e8f0 100%);
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 30% 40%,
+            rgba(49, 130, 206, 0.035) 0%,
+            transparent 50%),
+        radial-gradient(circle at 75% 60%,
+            rgba(26, 54, 93, 0.025) 0%,
+            transparent 50%);
+    pointer-events: none;
 }
 
 .contact h2 {
@@ -711,7 +811,29 @@ a:focus, button:focus {
 /* Team Sections Styling */
 .team-sections {
     padding: 4rem 0;
-    background-color: var(--background-light);
+    background: linear-gradient(155deg,
+        #edf2f7 0%,
+        #f7fafc 40%,
+        #e2e8f0 80%,
+        #f7fafc 100%);
+    position: relative;
+}
+
+.team-sections::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 25% 30%,
+            rgba(26, 54, 93, 0.03) 0%,
+            transparent 45%),
+        radial-gradient(circle at 80% 70%,
+            rgba(49, 130, 206, 0.03) 0%,
+            transparent 45%);
+    pointer-events: none;
 }
 
 .team-sections h2 {
@@ -1071,9 +1193,13 @@ body.modal-open {
 :root {
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-bg-dark: rgba(26, 54, 93, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    --glass-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-border-inner: rgba(255, 255, 255, 0.6);
+    --glass-border-outer: rgba(26, 54, 93, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                     0 2px 8px 0 rgba(26, 54, 93, 0.08);
+    --glass-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25),
+                          0 4px 12px 0 rgba(26, 54, 93, 0.12);
     --glass-blur: blur(20px);
     --glass-blur-strong: blur(40px);
 }
@@ -1094,8 +1220,9 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner);
     overflow: hidden;
 }
 
@@ -1165,11 +1292,31 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 -1px 0 0 rgba(26, 54, 93, 0.03);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.company-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    padding: 2px;
+    background: linear-gradient(135deg,
+        var(--glass-border-inner) 0%,
+        transparent 50%,
+        var(--glass-border-outer) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                   linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .company-card::before {
@@ -1202,8 +1349,10 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 0 20px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1222,6 +1371,7 @@ header {
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 -2px 8px 0 rgba(49, 130, 206, 0.3);
 }
 
 .leadership-card:hover {
@@ -1240,7 +1390,9 @@ header {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 2px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 0 15px 0 rgba(255, 255, 255, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
@@ -1278,15 +1430,37 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 0 20px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        transparent 50%,
+        rgba(26, 54, 93, 0.05) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .contact-card:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.85);
     box-shadow: var(--glass-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-card:hover::before {
+    opacity: 1;
 }
 
 /* Glass About Stats */
@@ -1294,8 +1468,25 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 0 25px 0 rgba(255, 255, 255, 0.12);
+    position: relative;
+}
+
+.about-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent);
+    opacity: 0.8;
 }
 
 /* Glass Team Sections */
@@ -1303,9 +1494,23 @@ header {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent 100%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .team-section:hover {
