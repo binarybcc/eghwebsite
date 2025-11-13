@@ -263,9 +263,9 @@ header {
 .companies-overview {
     padding: 4rem 0;
     background: linear-gradient(135deg,
-        #e2e8f0 0%,
-        #cbd5e0 50%,
-        #e2e8f0 100%);
+        #a0aec0 0%,
+        #b0bac5 50%,
+        #a0aec0 100%);
     position: relative;
 }
 
@@ -277,10 +277,10 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 20% 50%,
-        rgba(49, 130, 206, 0.06) 0%,
+        rgba(49, 130, 206, 0.1) 0%,
         transparent 50%),
         radial-gradient(circle at 80% 80%,
-        rgba(26, 54, 93, 0.05) 0%,
+        rgba(26, 54, 93, 0.08) 0%,
         transparent 50%);
     pointer-events: none;
 }
@@ -352,9 +352,9 @@ header {
 .markets {
     padding: 4rem 0;
     background: linear-gradient(120deg,
-        #d1dce5 0%,
-        #e2e8f0 50%,
-        #cbd5e0 100%);
+        #a8b4c0 0%,
+        #a0aec0 50%,
+        #9ca8b8 100%);
     position: relative;
 }
 
@@ -366,7 +366,7 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 50% 50%,
-        rgba(49, 130, 206, 0.06) 0%,
+        rgba(49, 130, 206, 0.1) 0%,
         transparent 60%);
     pointer-events: none;
 }
@@ -426,9 +426,9 @@ header {
 .about {
     padding: 4rem 0;
     background: radial-gradient(ellipse at top,
-        #cbd5e0 0%,
-        #e2e8f0 50%,
-        #cbd5e0 100%);
+        #9ca8b8 0%,
+        #a0aec0 50%,
+        #9ca8b8 100%);
     position: relative;
 }
 
@@ -440,7 +440,7 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 70% 30%,
-        rgba(49, 130, 206, 0.08) 0%,
+        rgba(49, 130, 206, 0.12) 0%,
         transparent 60%);
     pointer-events: none;
 }
@@ -494,10 +494,10 @@ header {
 .leadership {
     padding: 4rem 0;
     background: linear-gradient(160deg,
-        #e2e8f0 0%,
-        #cbd5e0 40%,
-        #d1dce5 70%,
-        #e2e8f0 100%);
+        #a0aec0 0%,
+        #9ca8b8 40%,
+        #a8b4c0 70%,
+        #a0aec0 100%);
     position: relative;
 }
 
@@ -510,10 +510,10 @@ header {
     bottom: 0;
     background:
         radial-gradient(circle at 15% 20%,
-            rgba(26, 54, 93, 0.05) 0%,
+            rgba(26, 54, 93, 0.08) 0%,
             transparent 40%),
         radial-gradient(circle at 85% 70%,
-            rgba(49, 130, 206, 0.05) 0%,
+            rgba(49, 130, 206, 0.08) 0%,
             transparent 40%);
     pointer-events: none;
 }
@@ -560,10 +560,10 @@ header {
 .contact {
     padding: 4rem 0;
     background: linear-gradient(145deg,
-        #cbd5e0 0%,
-        #d1dce5 30%,
-        #cbd5e0 60%,
-        #c2cdd6 100%);
+        #9ca8b8 0%,
+        #a8b4c0 30%,
+        #9ca8b8 60%,
+        #90a0b0 100%);
     position: relative;
 }
 
@@ -576,10 +576,10 @@ header {
     bottom: 0;
     background:
         radial-gradient(circle at 30% 40%,
-            rgba(49, 130, 206, 0.07) 0%,
+            rgba(49, 130, 206, 0.1) 0%,
             transparent 50%),
         radial-gradient(circle at 75% 60%,
-            rgba(26, 54, 93, 0.05) 0%,
+            rgba(26, 54, 93, 0.08) 0%,
             transparent 50%);
     pointer-events: none;
 }
@@ -812,10 +812,10 @@ a:focus, button:focus {
 .team-sections {
     padding: 4rem 0;
     background: linear-gradient(155deg,
-        #cbd5e0 0%,
-        #d1dce5 40%,
-        #c2cdd6 80%,
-        #cbd5e0 100%);
+        #9ca8b8 0%,
+        #a8b4c0 40%,
+        #90a0b0 80%,
+        #9ca8b8 100%);
     position: relative;
 }
 
@@ -828,10 +828,10 @@ a:focus, button:focus {
     bottom: 0;
     background:
         radial-gradient(circle at 25% 30%,
-            rgba(26, 54, 93, 0.06) 0%,
+            rgba(26, 54, 93, 0.1) 0%,
             transparent 45%),
         radial-gradient(circle at 80% 70%,
-            rgba(49, 130, 206, 0.06) 0%,
+            rgba(49, 130, 206, 0.1) 0%,
             transparent 45%);
     pointer-events: none;
 }
@@ -1191,16 +1191,17 @@ body.modal-open {
 
 /* Glass effect variables */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg: rgba(255, 255, 255, 0.5);
+    --glass-bg-hover: rgba(255, 255, 255, 0.65);
     --glass-bg-dark: rgba(26, 54, 93, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-border-inner: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-border-inner: rgba(255, 255, 255, 0.7);
     --glass-border-outer: rgba(26, 54, 93, 0.08);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15),
                      0 2px 8px 0 rgba(26, 54, 93, 0.08);
     --glass-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25),
                           0 4px 12px 0 rgba(26, 54, 93, 0.12);
-    --glass-blur: blur(20px);
+    --glass-blur: blur(25px);
     --glass-blur-strong: blur(40px);
 }
 
@@ -1335,9 +1336,9 @@ header {
 
 .company-card:hover {
     transform: translateY(-8px) scale(1.01);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--glass-bg-hover);
     box-shadow: var(--glass-shadow-hover);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .company-card:hover::before {
@@ -1376,8 +1377,9 @@ header {
 
 .leadership-card:hover {
     transform: translateY(-5px) scale(1.02);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--glass-bg-hover);
     box-shadow: var(--glass-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .leadership-card:hover::after {
@@ -1416,8 +1418,8 @@ header {
 
 .market-card:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(49, 130, 206, 0.4);
+    background: var(--glass-bg-hover);
+    border-color: rgba(49, 130, 206, 0.5);
     box-shadow: var(--glass-shadow-hover);
 }
 
@@ -1454,9 +1456,9 @@ header {
 
 .contact-card:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--glass-bg-hover);
     box-shadow: var(--glass-shadow-hover);
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-card:hover::before {
