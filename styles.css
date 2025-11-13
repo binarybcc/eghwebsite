@@ -477,15 +477,12 @@ header {
     line-height: 1.8;
 }
 
-.about-stats {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
+/* About stats styling moved to Liquid Glass section */
 
 .stat-item {
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .stat-item:last-child {
@@ -496,10 +493,14 @@ header {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
 }
 
 .stat-item p {
-    color: var(--text-secondary);
+    color: #2d3748;
+    position: relative;
+    z-index: 2;
 }
 
 /* Leadership Section */
@@ -1453,6 +1454,157 @@ header {
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Universal Glass Card Styles - Apply to ALL card types */
+.newspaper-card,
+.magazine-card,
+.station-card,
+.division-card,
+.service-card,
+.area-card,
+.benefit-card,
+.mission-card,
+.values-card,
+.commitment-card,
+.highlight-card,
+.program-card,
+.stat-card,
+.location-card,
+.emergency-card,
+.corporate-card,
+.division-contact-card,
+.location-contact-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow),
+                inset 0 1px 0 0 var(--glass-border-inner),
+                inset 0 0 15px 0 rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gradient border effect for all card types */
+.newspaper-card::before,
+.magazine-card::before,
+.station-card::before,
+.division-card::before,
+.service-card::before,
+.area-card::before,
+.benefit-card::before,
+.mission-card::before,
+.values-card::before,
+.commitment-card::before,
+.highlight-card::before,
+.program-card::before,
+.stat-card::before,
+.location-card::before,
+.emergency-card::before,
+.corporate-card::before,
+.division-contact-card::before,
+.location-contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    padding: 2px;
+    background: linear-gradient(135deg,
+        rgba(49, 130, 206, 0.3),
+        rgba(26, 54, 93, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                   linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Hover effects for all card types */
+.newspaper-card:hover,
+.magazine-card:hover,
+.station-card:hover,
+.division-card:hover,
+.service-card:hover,
+.area-card:hover,
+.benefit-card:hover,
+.mission-card:hover,
+.values-card:hover,
+.commitment-card:hover,
+.highlight-card:hover,
+.program-card:hover,
+.stat-card:hover,
+.location-card:hover,
+.emergency-card:hover,
+.corporate-card:hover,
+.division-contact-card:hover,
+.location-contact-card:hover {
+    transform: translateY(-3px);
+    background: var(--glass-bg-hover);
+    border-color: rgba(49, 130, 206, 0.5);
+    box-shadow: var(--glass-shadow-hover);
+}
+
+.newspaper-card:hover::before,
+.magazine-card:hover::before,
+.station-card:hover::before,
+.division-card:hover::before,
+.service-card:hover::before,
+.area-card:hover::before,
+.benefit-card:hover::before,
+.mission-card:hover::before,
+.values-card:hover::before,
+.commitment-card:hover::before,
+.highlight-card:hover::before,
+.program-card:hover::before,
+.stat-card:hover::before,
+.location-card:hover::before,
+.emergency-card:hover::before,
+.corporate-card:hover::before,
+.division-contact-card:hover::before,
+.location-contact-card:hover::before {
+    opacity: 1;
+}
+
+/* Glass shine animation for all card types */
+.newspaper-card:hover::after,
+.magazine-card:hover::after,
+.station-card:hover::after,
+.division-card:hover::after,
+.service-card:hover::after,
+.area-card:hover::after,
+.benefit-card:hover::after,
+.mission-card:hover::after,
+.values-card:hover::after,
+.commitment-card:hover::after,
+.highlight-card:hover::after,
+.program-card:hover::after,
+.stat-card:hover::after,
+.location-card:hover::after,
+.emergency-card:hover::after,
+.corporate-card:hover::after,
+.division-contact-card:hover::after,
+.location-contact-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(110deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 60%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: glassShine 2s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .contact-card::before {
