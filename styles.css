@@ -1061,3 +1061,426 @@ a:focus, button:focus {
 body.modal-open {
     overflow: hidden;
 }
+
+/* ========================================
+   LIQUID GLASS DESIGN SYSTEM
+   Apple-inspired frosted glass effects
+   ======================================== */
+
+/* Glass effect variables */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg-dark: rgba(26, 54, 93, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --glass-shadow-hover: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    --glass-blur: blur(20px);
+    --glass-blur-strong: blur(40px);
+}
+
+/* Enhanced Navigation with Liquid Glass */
+header {
+    background: linear-gradient(135deg,
+        rgba(26, 54, 93, 0.95) 0%,
+        rgba(44, 82, 130, 0.95) 100%);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Glass Dropdown Menu */
+.dropdown-menu {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    overflow: hidden;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent);
+}
+
+.dropdown-menu a {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateX(5px);
+}
+
+/* Enhanced Hero Stats with Liquid Glass */
+.stat {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+}
+
+.stat:hover::before {
+    left: 100%;
+}
+
+/* Glass Company Cards */
+.company-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.company-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: var(--glass-shadow-hover);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.company-card:hover::before {
+    opacity: 1;
+}
+
+/* Glass Leadership Cards */
+.leadership-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leadership-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        var(--primary-color),
+        var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leadership-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: var(--glass-shadow-hover);
+}
+
+.leadership-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Glass Market Cards */
+.market-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 2px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.market-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    padding: 2px;
+    background: linear-gradient(135deg,
+        rgba(49, 130, 206, 0.3),
+        rgba(26, 54, 93, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                   linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.market-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(49, 130, 206, 0.4);
+    box-shadow: var(--glass-shadow-hover);
+}
+
+.market-card:hover::before {
+    opacity: 1;
+}
+
+/* Glass Contact Cards */
+.contact-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: var(--glass-shadow-hover);
+}
+
+/* Glass About Stats */
+.about-stats {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Glass Team Sections */
+.team-section {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-section:hover {
+    box-shadow: var(--glass-shadow-hover);
+}
+
+.team-toggle {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glass effect for buttons */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-secondary {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--primary-color);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Floating glass effect for photo modal */
+.photo-modal {
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+}
+
+.photo-modal-content {
+    position: relative;
+}
+
+.photo-modal-content::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%);
+    z-index: -1;
+    filter: blur(20px);
+}
+
+.photo-modal-close {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Subtle glass shine effect */
+@keyframes glassShine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.company-card:hover,
+.leadership-card:hover,
+.market-card:hover {
+    position: relative;
+}
+
+.company-card:hover::after,
+.leadership-card:hover::after,
+.market-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(110deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 60%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: glassShine 2s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Enhanced depth with layered shadows */
+.company-card:hover,
+.leadership-card:hover {
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.03),
+        0 2px 2px rgba(0,0,0,0.03),
+        0 4px 4px rgba(0,0,0,0.03),
+        0 8px 8px rgba(0,0,0,0.04),
+        0 16px 16px rgba(0,0,0,0.05);
+}
+
+/* Smooth glass transitions for all interactive elements */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Browser fallbacks for older browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(20px)) {
+    header {
+        background: linear-gradient(135deg,
+            rgba(26, 54, 93, 1) 0%,
+            rgba(44, 82, 130, 1) 100%);
+    }
+
+    .company-card,
+    .leadership-card,
+    .market-card,
+    .contact-card {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .stat {
+        background: rgba(255, 255, 255, 0.25);
+    }
+}
+
+/* Responsive adjustments for glass effects */
+@media (max-width: 768px) {
+    :root {
+        --glass-blur: blur(15px);
+        --glass-blur-strong: blur(25px);
+    }
+
+    .company-card:hover,
+    .leadership-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --glass-blur: blur(10px);
+        --glass-blur-strong: blur(20px);
+    }
+}
