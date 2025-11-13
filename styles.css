@@ -1910,11 +1910,20 @@ label,
 
 /* Process Steps and Career Sections */
 .step p,
-.step h4,
-.openings-contact p,
-.openings-contact h5,
-.contact-location h5 {
+.step h4 {
     color: #1a202c !important;
+}
+
+/* Openings Contact - Use white for dark backgrounds */
+.openings-contact p,
+.openings-contact h3,
+.openings-contact h4,
+.openings-contact h5,
+.contact-location h5,
+.contact-location p,
+.openings-contact .contact-locations .contact-location h5,
+.openings-contact .contact-locations .contact-location p {
+    color: #ffffff !important;
 }
 
 /* Form Sections */
