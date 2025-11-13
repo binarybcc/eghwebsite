@@ -263,9 +263,9 @@ header {
 .companies-overview {
     padding: 4rem 0;
     background: linear-gradient(135deg,
-        #f7fafc 0%,
-        #edf2f7 50%,
-        #f7fafc 100%);
+        #e2e8f0 0%,
+        #cbd5e0 50%,
+        #e2e8f0 100%);
     position: relative;
 }
 
@@ -277,10 +277,10 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 20% 50%,
-        rgba(49, 130, 206, 0.03) 0%,
+        rgba(49, 130, 206, 0.06) 0%,
         transparent 50%),
         radial-gradient(circle at 80% 80%,
-        rgba(26, 54, 93, 0.03) 0%,
+        rgba(26, 54, 93, 0.05) 0%,
         transparent 50%);
     pointer-events: none;
 }
@@ -352,9 +352,9 @@ header {
 .markets {
     padding: 4rem 0;
     background: linear-gradient(120deg,
-        #ffffff 0%,
-        #f7fafc 50%,
-        #edf2f7 100%);
+        #d1dce5 0%,
+        #e2e8f0 50%,
+        #cbd5e0 100%);
     position: relative;
 }
 
@@ -366,7 +366,7 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 50% 50%,
-        rgba(49, 130, 206, 0.02) 0%,
+        rgba(49, 130, 206, 0.06) 0%,
         transparent 60%);
     pointer-events: none;
 }
@@ -426,9 +426,9 @@ header {
 .about {
     padding: 4rem 0;
     background: radial-gradient(ellipse at top,
-        #edf2f7 0%,
-        #f7fafc 50%,
-        #e2e8f0 100%);
+        #cbd5e0 0%,
+        #e2e8f0 50%,
+        #cbd5e0 100%);
     position: relative;
 }
 
@@ -440,7 +440,7 @@ header {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 70% 30%,
-        rgba(49, 130, 206, 0.04) 0%,
+        rgba(49, 130, 206, 0.08) 0%,
         transparent 60%);
     pointer-events: none;
 }
@@ -494,10 +494,10 @@ header {
 .leadership {
     padding: 4rem 0;
     background: linear-gradient(160deg,
-        #ffffff 0%,
-        #f7fafc 40%,
-        #edf2f7 70%,
-        #f7fafc 100%);
+        #e2e8f0 0%,
+        #cbd5e0 40%,
+        #d1dce5 70%,
+        #e2e8f0 100%);
     position: relative;
 }
 
@@ -510,10 +510,10 @@ header {
     bottom: 0;
     background:
         radial-gradient(circle at 15% 20%,
-            rgba(26, 54, 93, 0.025) 0%,
+            rgba(26, 54, 93, 0.05) 0%,
             transparent 40%),
         radial-gradient(circle at 85% 70%,
-            rgba(49, 130, 206, 0.025) 0%,
+            rgba(49, 130, 206, 0.05) 0%,
             transparent 40%);
     pointer-events: none;
 }
@@ -560,10 +560,10 @@ header {
 .contact {
     padding: 4rem 0;
     background: linear-gradient(145deg,
-        #f7fafc 0%,
-        #edf2f7 30%,
-        #f7fafc 60%,
-        #e2e8f0 100%);
+        #cbd5e0 0%,
+        #d1dce5 30%,
+        #cbd5e0 60%,
+        #c2cdd6 100%);
     position: relative;
 }
 
@@ -576,10 +576,10 @@ header {
     bottom: 0;
     background:
         radial-gradient(circle at 30% 40%,
-            rgba(49, 130, 206, 0.035) 0%,
+            rgba(49, 130, 206, 0.07) 0%,
             transparent 50%),
         radial-gradient(circle at 75% 60%,
-            rgba(26, 54, 93, 0.025) 0%,
+            rgba(26, 54, 93, 0.05) 0%,
             transparent 50%);
     pointer-events: none;
 }
@@ -812,10 +812,10 @@ a:focus, button:focus {
 .team-sections {
     padding: 4rem 0;
     background: linear-gradient(155deg,
-        #edf2f7 0%,
-        #f7fafc 40%,
-        #e2e8f0 80%,
-        #f7fafc 100%);
+        #cbd5e0 0%,
+        #d1dce5 40%,
+        #c2cdd6 80%,
+        #cbd5e0 100%);
     position: relative;
 }
 
@@ -828,10 +828,10 @@ a:focus, button:focus {
     bottom: 0;
     background:
         radial-gradient(circle at 25% 30%,
-            rgba(26, 54, 93, 0.03) 0%,
+            rgba(26, 54, 93, 0.06) 0%,
             transparent 45%),
         radial-gradient(circle at 80% 70%,
-            rgba(49, 130, 206, 0.03) 0%,
+            rgba(49, 130, 206, 0.06) 0%,
             transparent 45%);
     pointer-events: none;
 }
