@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Edwards Group Holdings</title>
-    <meta
-      name="description"
-      content="Contact Edwards Group Holdings - Reach our corporate office or local operations across South Carolina, Wyoming, and Michigan."
-    />
-    
-    <!-- Security Headers via Meta Tags -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self';">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style" />
-    <link rel="preload" href="script.js" as="script" />
-    
-    <link rel="stylesheet" href="styles.css" />
 
-    <!-- Structured Data (JSON-LD) for Contact Information -->
-    <script type="application/ld+json">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Edwards Group Holdings</title>
+  <meta name="description"
+    content="Contact Edwards Group Holdings - Reach our corporate office or local operations across South Carolina, Wyoming, and Michigan." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Edwards Group Holdings",
       "url": "https://edwards-group.com",
-      "description": "Contact Edwards Group Holdings - Corporate office and local operations across South Carolina, Wyoming, and Michigan.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "125 Eagles Nest Dr",
-        "addressLocality": "Seneca",
-        "addressRegion": "SC",
-        "postalCode": "29678",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-864-882-3272",
       "contactPoint": [
         {
           "@type": "ContactPoint",
@@ -44,1068 +32,436 @@
           "contactType": "corporate headquarters",
           "areaServed": "US",
           "availableLanguage": "English"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+1-864-882-2375",
-          "contactType": "publishing division",
-          "description": "The Journal - Seneca, SC",
-          "areaServed": "South Carolina"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+1-307-856-2277",
-          "contactType": "publishing division",
-          "description": "The Ranger & Lander Journal - Wyoming",
-          "areaServed": "Wyoming"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+1-989-673-3181",
-          "contactType": "publishing division",
-          "description": "The Advertiser - Caro, MI",
-          "areaServed": "Michigan"
-        }
-      ],
-      "location": [
-        {
-          "@type": "Place",
-          "name": "Corporate Headquarters",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "125 Eagles Nest Dr",
-            "addressLocality": "Seneca",
-            "addressRegion": "SC",
-            "postalCode": "29678",
-            "addressCountry": "US"
-          },
-          "telephone": "+1-864-882-3272"
-        },
-        {
-          "@type": "Place",
-          "name": "The Journal Office",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "210 W North 1st Street",
-            "addressLocality": "Seneca",
-            "addressRegion": "SC",
-            "postalCode": "29678",
-            "addressCountry": "US"
-          },
-          "telephone": "+1-864-882-2375"
-        },
-        {
-          "@type": "Place",
-          "name": "The Ranger Office",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Riverton",
-            "addressRegion": "WY",
-            "postalCode": "82501",
-            "addressCountry": "US"
-          },
-          "telephone": "+1-307-856-2277"
-        },
-        {
-          "@type": "Place",
-          "name": "The Advertiser Office",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "344 N State St",
-            "addressLocality": "Caro",
-            "addressRegion": "MI",
-            "postalCode": "48723",
-            "addressCountry": "US"
-          },
-          "telephone": "+1-989-673-3181"
         }
       ]
     }
     </script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="container">
-          <div class="nav-brand">
-            <h1>
-              <a href="index.html" style="color: white; text-decoration: none"
-                >Edwards Group Holdings</a
-              >
-            </h1>
-            <p class="tagline">Contact Us</p>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="assets/egh-logo-gold.webp" alt="EGH Logo" class="nav-logo" width="40" height="40">
+        <div class="nav-title">
+          <h1>Edwards Group Holdings</h1>
+          <p>Excellence in Media</p>
+        </div>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Menu">☰</button>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#companies" class="nav-link">Our Companies ▾</a>
+          <div class="dropdown-menu">
+            <a href="publishing.html" class="dropdown-item">Publishing</a>
+            <a href="radio.html" class="dropdown-item">Radio</a>
+            <a href="printing.html" class="dropdown-item">Printing</a>
           </div>
-          <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-              <a href="index.html#our-companies">Our Companies</a>
-              <ul class="dropdown-menu">
-                <li><a href="publishing.html">Publishing</a></li>
-                <li><a href="radio.html">Radio</a></li>
-                <li><a href="printing.html">Printing</a></li>
+        </li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="leadership.html" class="nav-link">Leadership</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+        <li><a href="https://portal.edwards-group.com" class="nav-link" target="_blank">Employee Portal</a></li>
+        <li><a href="contact.html" class="btn btn--primary">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" style="min-height: 50vh;">
+    <div class="hero-overlay" style="background: var(--color-primary);"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Contact Us</h1>
+      <p class="hero-subtitle">
+        Get in touch with The Edwards Group. We're here to help.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Corporate Headquarters -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2>Corporate Headquarters</h2>
+        </div>
+        <div class="grid grid--1 md:grid-cols-2 gap-8">
+          <div class="card h-full">
+            <h3>Edwards Group Holdings</h3>
+            <div class="mt-6 space-y-4 text-lg">
+              <p><strong>Address:</strong><br>
+                125 Eagles Nest Dr<br>
+                Seneca, SC 29678</p>
+              <p><strong>Phone:</strong> 864-882-3272</p>
+              <p><strong>County:</strong> Oconee County</p>
+            </div>
+          </div>
+          <div class="card h-full bg-slate-50">
+            <h3>General Inquiries</h3>
+            <div class="mt-6 space-y-6">
+              <div>
+                <h4 class="text-primary font-bold">Corporate Information</h4>
+                <p class="text-muted">For general company information, investor relations, or corporate partnerships.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-primary font-bold">Career Opportunities</h4>
+                <p class="text-muted">For employment inquiries, resume submissions, or internship applications.</p>
+              </div>
+              <div>
+                <h4 class="text-primary font-bold">Media Relations</h4>
+                <p class="text-muted">For press inquiries, company statements, or media kit requests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact by Division -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2>Contact by Division</h2>
+          <p class="text-muted">Direct contact information for our business divisions.</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card">
+            <div class="card-icon">📰</div>
+            <h3>Publishing Division</h3>
+            <p class="text-sm mb-6 text-muted">For news tips, advertising inquiries, subscription information, or
+              editorial questions.</p>
+            <div class="space-y-4 border-t pt-4 border-slate-100">
+              <div>
+                <h5 class="font-bold text-sm">The Journal</h5>
+                <p class="text-xs text-muted">Seneca, SC • 864-882-2375</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">The Ranger</h5>
+                <p class="text-xs text-muted">Riverton, WY • 307-856-2277</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">The Advertiser</h5>
+                <p class="text-xs text-muted">Caro, MI • 989-673-3181</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📻</div>
+            <h3>Radio Division</h3>
+            <p class="text-sm mb-6 text-muted">For advertising opportunities, programming inquiries, contest
+              information, or listener feedback.</p>
+            <div class="space-y-4 border-t pt-4 border-slate-100">
+              <div>
+                <h5 class="font-bold text-sm">WyoToday Network</h5>
+                <p class="text-xs text-muted">Riverton, WY • 307-856-2277</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">True North Radio</h5>
+                <p class="text-xs text-muted">Alpena, MI • 989-354-4611</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">Caro Stations</h5>
+                <p class="text-xs text-muted">Caro, MI • 989-673-3181</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🖨️</div>
+            <h3>Printing Division</h3>
+            <p class="text-sm mb-6 text-muted">For printing quotes, project consultations, design services, or customer
+              support.</p>
+            <div class="space-y-4 border-t pt-4 border-slate-100">
+              <div>
+                <h5 class="font-bold text-sm">Edwards Printing</h5>
+                <p class="text-xs text-muted">Westminster, SC • 864-324-0642</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">Ranger Printers</h5>
+                <p class="text-xs text-muted">Riverton, WY • 307-856-2277</p>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">Heritage Press</h5>
+                <p class="text-xs text-muted">Caro, MI • 989-673-3181</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact by Location (Three Slices) -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2>Contact by Location</h2>
+          <p class="text-muted">Find contact information for our operations in your region.</p>
+        </div>
+
+        <!-- Slice 1: South Carolina -->
+        <div class="card mb-8">
+          <div class="grid grid--1 md:grid-cols-[1fr_3fr] gap-8">
+            <div class="border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-4">
+              <h3 class="text-2xl text-primary mb-2">South Carolina</h3>
+              <p class="text-muted">Oconee County Operations</p>
+              <p class="text-sm mt-2"><strong>Primary Markets:</strong> Seneca, Westminster</p>
+            </div>
+            <div class="grid grid--1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-bold mb-1">The Journal</h4>
+                <p class="text-sm text-muted">210 W North 1st Street, Seneca, SC 29678</p>
+                <p class="text-sm">Phone: 864-882-2375</p>
+                <a href="https://upstatetoday.com" target="_blank"
+                  class="text-sm text-accent hover:underline">upstatetoday.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">The Journal Digital Press</h4>
+                <p class="text-sm text-muted">210 W North 1st Street, Seneca, SC 29678</p>
+                <p class="text-sm">Phone: 864-882-2375</p>
+                <a href="https://upstatetoday.com/businesspress" target="_blank"
+                  class="text-sm text-accent hover:underline">upstatetoday.com/businesspress</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Edwards Printing</h4>
+                <p class="text-sm text-muted">7105 S Highway 11, Westminster, SC 29693</p>
+                <p class="text-sm">Phone: 864-324-0642</p>
+                <a href="printing.html" class="text-sm text-accent hover:underline">edwardsprinting.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slice 2: Wyoming -->
+        <div class="card mb-8">
+          <div class="grid grid--1 md:grid-cols-[1fr_3fr] gap-8">
+            <div class="border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-4">
+              <h3 class="text-2xl text-primary mb-2">Wyoming</h3>
+              <p class="text-muted">Fremont County Operations</p>
+              <p class="text-sm mt-2"><strong>Primary Markets:</strong> Riverton, Lander</p>
+            </div>
+            <div class="grid grid--1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-bold mb-1">The Ranger</h4>
+                <p class="text-sm text-muted">Riverton, WY 82501</p>
+                <p class="text-sm">Phone: 307-856-2277</p>
+                <a href="https://rivertonranger.com" target="_blank"
+                  class="text-sm text-accent hover:underline">rivertonranger.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">The Lander Journal</h4>
+                <p class="text-sm text-muted">Lander, WY 82520</p>
+                <p class="text-sm">Phone: 307-856-2277</p>
+                <a href="https://thelanderjournal.com" target="_blank"
+                  class="text-sm text-accent hover:underline">thelanderjournal.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">WyoToday Radio Network</h4>
+                <p class="text-sm text-muted">421 E Main St, Riverton, WY 82501</p>
+                <p class="text-sm">Phone: 307-856-2277</p>
+                <a href="https://wyotoday.com" target="_blank"
+                  class="text-sm text-accent hover:underline">wyotoday.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Ranger Printers</h4>
+                <p class="text-sm text-muted">421 E Main St, Riverton, WY 82501</p>
+                <p class="text-sm">Phone: 307-856-2277</p>
+                <a href="printing.html" class="text-sm text-accent hover:underline">rangerprinters.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slice 3: Michigan -->
+        <div class="card">
+          <div class="grid grid--1 md:grid-cols-[1fr_3fr] gap-8">
+            <div class="border-b md:border-b-0 md:border-r border-slate-200 pb-4 md:pb-0 md:pr-4">
+              <h3 class="text-2xl text-primary mb-2">Michigan</h3>
+              <p class="text-muted">Tuscola County & Northern Michigan</p>
+              <p class="text-sm mt-2"><strong>Primary Markets:</strong> Caro, Alpena region</p>
+            </div>
+            <div class="grid grid--1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-bold mb-1">The Advertiser</h4>
+                <p class="text-sm text-muted">344 N State St, Caro, MI 48723</p>
+                <p class="text-sm">Phone: 989-673-3181</p>
+                <a href="https://tuscolatoday.com" target="_blank"
+                  class="text-sm text-accent hover:underline">tuscolatoday.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">True North Radio Network</h4>
+                <p class="text-sm text-muted">1491 M-32 West, Alpena, MI 49707</p>
+                <p class="text-sm">Phone: 989-354-4611</p>
+                <a href="https://truenorthradionetwork.com" target="_blank"
+                  class="text-sm text-accent hover:underline">truenorthradionetwork.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Classic Rock I92, WKYO 1360 Country</h4>
+                <p class="text-sm text-muted">344 N State St, Caro, MI 48723</p>
+                <p class="text-sm">Phone: 989-673-3181</p>
+                <a href="https://classicrocki92.com/" target="_blank"
+                  class="text-sm text-accent hover:underline">classicrocki92.com</a>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Heritage Press</h4>
+                <p class="text-sm text-muted">344 N State St, Caro, MI 48723</p>
+                <p class="text-sm">Phone: 989-673-3181</p>
+                <a href="printing.html" class="text-sm text-accent hover:underline">heritage-press.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section section--alt" id="contact-form-section">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-10">
+            <h2>Send Us a Message</h2>
+            <p class="text-lg text-muted">Get in Touch</p>
+            <p class="mt-4 text-sm max-w-2xl mx-auto">
+              Use the form below to send us a message. We'll respond to your inquiry as quickly as possible, typically
+              within one business day.
+            </p>
+          </div>
+
+          <div class="card bg-white shadow-lg p-8 md:p-12">
+            <div class="bg-slate-50 p-6 rounded-lg mb-8 border border-slate-200">
+              <h4 class="text-sm font-bold uppercase tracking-wide text-primary mb-2">For Faster Service</h4>
+              <ul class="list-disc pl-5 text-sm text-muted space-y-1">
+                <li>Include specific details about your inquiry</li>
+                <li>Mention which location or division you're interested in</li>
+                <li>Provide the best way to reach you</li>
+                <li>For urgent matters, call us directly</li>
               </ul>
-            </li>
+            </div>
+
+            <form id="contact-form">
+              <div class="form-grid mb-6">
+                <div class="form-group mb-0">
+                  <label for="first-name" class="form-label">First Name *</label>
+                  <input type="text" id="first-name" name="firstName" required
+                    class="form-input bg-slate-50 focus:bg-white">
+                </div>
+                <div class="form-group mb-0">
+                  <label for="last-name" class="form-label">Last Name *</label>
+                  <input type="text" id="last-name" name="lastName" required
+                    class="form-input bg-slate-50 focus:bg-white">
+                </div>
+              </div>
+
+              <div class="form-grid mb-6">
+                <div class="form-group mb-0">
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input type="email" id="email" name="email" required class="form-input bg-slate-50 focus:bg-white">
+                </div>
+                <div class="form-group mb-0">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="form-input bg-slate-50 focus:bg-white">
+                </div>
+              </div>
+
+              <div class="form-group mb-6">
+                <label for="subject" class="form-label">Subject *</label>
+                <select id="subject" name="subject" required class="form-select bg-slate-50 focus:bg-white">
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="advertising">Advertising Opportunities</option>
+                  <option value="news">News Tip / Editorial</option>
+                  <option value="printing">Printing Quote</option>
+                  <option value="careers">Careers</option>
+                </select>
+              </div>
+
+              <div class="form-group mb-6">
+                <label for="location" class="form-label">Preferred Location</label>
+                <select id="location" name="location" class="form-select bg-slate-50 focus:bg-white">
+                  <option value="">Any Location</option>
+                  <option value="corporate">Corporate Office</option>
+                  <option value="sc">South Carolina</option>
+                  <option value="wy">Wyoming</option>
+                  <option value="mi">Michigan</option>
+                </select>
+              </div>
+
+              <div class="form-group mb-8">
+                <label for="message" class="form-label">Message *</label>
+                <textarea id="message" name="message" rows="6" required class="form-textarea bg-slate-50 focus:bg-white"
+                  placeholder="Please provide details about your inquiry..."></textarea>
+              </div>
+
+              <div class="form-group mb-8">
+                <label class="form-checkbox">
+                  <input type="checkbox" name="newsletter" id="newsletter">
+                  <span class="text-sm text-muted">I would like to receive updates and news from Edwards Group
+                    Holdings</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--primary w-full md:w-auto px-12 py-3 text-lg">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Edwards Group Holdings</h4>
+          <p class="text-sm text-muted">Excellence in Media & Communication</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Methods</h4>
+          <ul class="footer-links">
+            <li>Corporate Office</li>
+            <li>Local Operations</li>
+            <li>Online Form</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
             <li><a href="about.html">About Us</a></li>
             <li><a href="leadership.html">Leadership</a></li>
             <li><a href="careers.html">Careers</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#employee-portal">Employee Portal</a></li>
+            <li><a href="index.html">Home</a></li>
           </ul>
         </div>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero-content">
-            <h2>Contact Us</h2>
-            <p>
-              Get in touch with The Edwards Group. Whether you're looking for
-              corporate information, advertising opportunities, or local news
-              coverage, we're here to help.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="corporate-contact">
-        <div class="container">
-          <h2>Corporate Headquarters</h2>
-          <div class="corporate-info">
-            <div class="corporate-details">
-              <div class="contact-card">
-                <h3>Edwards Group Holdings</h3>
-                <div class="contact-details" id="corporate-contact"></div>
-              </div>
-            </div>
-            <div class="corporate-inquiries">
-              <h3>General Inquiries</h3>
-              <div class="inquiry-types">
-                <div class="inquiry-item">
-                  <h4>Corporate Information</h4>
-                  <p>
-                    For general company information, investor relations, or
-                    corporate partnerships.
-                  </p>
-                </div>
-                <div class="inquiry-item">
-                  <h4>Career Opportunities</h4>
-                  <p>
-                    For employment inquiries, resume submissions, or internship
-                    applications.
-                  </p>
-                </div>
-                <div class="inquiry-item">
-                  <h4>Media Relations</h4>
-                  <p>
-                    For press inquiries, company statements, or media kit
-                    requests.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-by-division">
-        <div class="container">
-          <h2>Contact by Division</h2>
-          <div class="divisions-contact">
-            <div class="division-contact-card">
-              <div class="division-icon">📰</div>
-              <h3>Publishing Division</h3>
-              <p>
-                For news tips, advertising inquiries, subscription information,
-                or editorial questions.
-              </p>
-              <div class="division-contacts" id="newspapers-contacts"></div>
-            </div>
-            <div class="division-contact-card">
-              <div class="division-icon">📻</div>
-              <h3>Radio Division</h3>
-              <p>
-                For advertising opportunities, programming inquiries, contest
-                information, or listener feedback.
-              </p>
-              <div class="division-contacts" id="radio-contacts"></div>
-            </div>
-            <div class="division-contact-card">
-              <div class="division-icon">🖨️</div>
-              <h3>Printing Division</h3>
-              <p>
-                For printing quotes, project consultations, design services, or
-                customer support.
-              </p>
-              <div class="division-contacts" id="printing-contacts"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-by-location">
-        <div class="container">
-          <h2>Contact by Location</h2>
-          <div class="locations-grid">
-            <div class="location-contact-card">
-              <h3>South Carolina</h3>
-              <div class="location-details">
-                <h4>Oconee County Operations</h4>
-                <p><strong>Primary Markets:</strong> Seneca, Westminster</p>
-                <div class="location-properties">
-                  <div class="property">
-                    <h5>The Journal</h5>
-                    <p>210 W North 1st Street, Seneca, SC 29678</p>
-                    <p>Phone: 864-882-2375</p>
-                    <p>
-                      Website:
-                      <a href="https://upstatetoday.com" target="_blank"
-                        >upstatetoday.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>The Journal Digital Press</h5>
-                    <p>210 W North 1st Street, Seneca, SC 29678</p>
-                    <p>Phone: 864-882-2375</p>
-                    <p>
-                      Website:
-                      <a
-                        href="https://upstatetoday.com/businesspress"
-                        target="_blank"
-                        >upstatetoday.com/businesspress</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>Edwards Printing</h5>
-                    <p>7105 S Highway 11, Westminster, SC 29693</p>
-                    <p>Phone: 864-324-0642</p>
-                    <p>
-                      Website:
-                      <a href="https://edwprinting.com" target="_blank"
-                        >edwprinting.com</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="location-contact-card">
-              <h3>Wyoming</h3>
-              <div class="location-details">
-                <h4>Fremont County Operations</h4>
-                <p><strong>Primary Markets:</strong> Riverton, Lander</p>
-                <div class="location-properties">
-                  <div class="property">
-                    <h5>The Ranger</h5>
-                    <p>Riverton, WY 82501</p>
-                    <p>Phone: 307-856-2277</p>
-                    <p>
-                      Website:
-                      <a href="https://rivertonranger.com" target="_blank"
-                        >rivertonranger.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>The Lander Journal</h5>
-                    <p>Lander, WY 82501</p>
-                    <p>Phone: 307-856-2277</p>
-                    <p>
-                      Website:
-                      <a href="https://thelanderjournal.com" target="_blank"
-                        >thelanderjournal.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>WyoToday Radio Network</h5>
-                    <p>421 E Main St, Riverton, WY 82501</p>
-                    <p>Phone: 307-856-2277</p>
-                    <p>
-                      Website:
-                      <a href="https://wyotoday.com" target="_blank"
-                        >wyotoday.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>Ranger Printers</h5>
-                    <p>421 E Main St, Riverton, WY 82501</p>
-                    <p>Phone: 307-856-2277</p>
-                    <p>
-                      Website:
-                      <a href="https://rangerprinters.com" target="_blank"
-                        >rangerprinters.com</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="location-contact-card">
-              <h3>Michigan</h3>
-              <div class="location-details">
-                <h4>Tuscola County & Northern Michigan</h4>
-                <p><strong>Primary Markets:</strong> Caro, Alpena region</p>
-                <div class="location-properties">
-                  <div class="property">
-                    <h5>The Advertiser</h5>
-                    <p>344 N State St, Caro, MI 48723</p>
-                    <p>Phone: 989-673-3181</p>
-                    <p>
-                      Website:
-                      <a href="https://tuscolatoday.com" target="_blank"
-                        >tuscolatoday.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>Classic Rock I92, WKYO 1360 Country</h5>
-                    <p>344 N State St, Caro, MI 48723</p>
-                    <p>Phone: 989-673-3181</p>
-                    <p>WIDL 92.1 Classic Rock, WKYO 1360 Country</p>
-                  </div>
-                  <div class="property">
-                    <h5>True North Radio Network</h5>
-                    <p>1491 M-32 West, Alpena, MI 49707</p>
-                    <p>Phone: 989-354-4611</p>
-                    <p>
-                      Website:
-                      <a
-                        href="https://truenorthradionetwork.com"
-                        target="_blank"
-                        >truenorthradionetwork.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="property">
-                    <h5>Heritage Press</h5>
-                    <p>344 N State St, Caro, MI 48723</p>
-                    <p>Phone: 989-673-3181</p>
-                    <p>
-                      Website:
-                      <a href="https://heritage-press.com" target="_blank"
-                        >heritage-press.com</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-form-section" id="contact-form">
-        <div class="container">
-          <h2>Send Us a Message</h2>
-          <div class="form-container">
-            <div class="form-intro">
-              <h3>Get in Touch</h3>
-              <p>
-                Use the form below to send us a message. We'll respond to your
-                inquiry as quickly as possible, typically within one business
-                day.
-              </p>
-
-              <div class="form-tips">
-                <h4>For Faster Service</h4>
-                <ul>
-                  <li>Include specific details about your inquiry</li>
-                  <li>
-                    Mention which location or division you're interested in
-                  </li>
-                  <li>Provide the best way to reach you</li>
-                  <li>For urgent matters, call us directly</li>
-                </ul>
-              </div>
-            </div>
-            <div class="contact-form">
-              <form id="contact-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="first-name">First Name *</label>
-                    <input
-                      type="text"
-                      id="first-name"
-                      name="firstName"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="last-name">Last Name *</label>
-                    <input
-                      type="text"
-                      id="last-name"
-                      name="lastName"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="subject">Subject *</label>
-                  <select id="subject" name="subject" required>
-                    <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="advertising">
-                      Advertising Opportunities
-                    </option>
-                    <option value="news">News Tips / Editorial</option>
-                    <option value="printing">Printing Services</option>
-                    <option value="radio">Radio Programming</option>
-                    <option value="careers">Career Opportunities</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="location">Preferred Location</label>
-                  <select id="location" name="location">
-                    <option value="">Any Location</option>
-                    <option value="corporate">Corporate Office</option>
-                    <option value="sc">South Carolina</option>
-                    <option value="wy">Wyoming</option>
-                    <option value="mi">Michigan</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    required
-                    placeholder="Please provide details about your inquiry..."
-                  ></textarea>
-                </div>
-                <div class="form-group">
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="newsletter" id="newsletter" />
-                    I would like to receive updates and news from Edwards Group
-                    Holdings
-                  </label>
-                </div>
-                <button type="submit" class="btn-primary">Send Message</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="emergency-contact">
-        <div class="container">
-          <h2>Emergency & After-Hours Contact</h2>
-          <div class="emergency-info">
-            <div class="emergency-card">
-              <h3>News Tips & Breaking News</h3>
-              <p>
-                For urgent news tips or breaking news information, contact our
-                newsrooms directly:
-              </p>
-              <ul>
-                <li><strong>South Carolina:</strong> 864-882-2375</li>
-                <li><strong>Wyoming:</strong> 307-856-2277</li>
-                <li><strong>Michigan:</strong> 989-673-3181 / 989-354-4611</li>
-              </ul>
-            </div>
-            <div class="emergency-card">
-              <h3>Technical Issues</h3>
-              <p>
-                For website, radio streaming, or other technical issues, contact
-                our support team or leave a detailed message.
-              </p>
-            </div>
-            <div class="emergency-card">
-              <h3>Advertising Deadlines</h3>
-              <p>
-                For time-sensitive advertising needs or deadline questions,
-                contact the specific location directly for fastest response.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Edwards Group Holdings</h3>
-            <p>Excellence in Media & Communication</p>
-          </div>
-          <div class="footer-section">
-            <h4>Contact Methods</h4>
-            <ul>
-              <li>Corporate Office</li>
-              <li>Local Operations</li>
-              <li>Online Contact Form</li>
-              <li>Direct Phone Lines</li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Our Locations</h4>
-            <ul>
-              <li>South Carolina</li>
-              <li>Wyoming</li>
-              <li>Michigan</li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="leadership.html">Leadership</a></li>
-              <li><a href="careers.html">Careers</a></li>
-              <li><a href="index.html">Home</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 Edwards Group Holdings. All rights reserved.</p>
-        </div>
       </div>
-    </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Edwards Group Holdings. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="csv-manager.js" defer></script>
-    <script src="script.js?v=1.1" defer></script>
-    <script>
-      // Contact page specific functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        // Use CSV manager for reliable data loading
-        if (window.csvManager) {
-          window.csvManager.onReady((data, state) => {
-            if (!state.hasError) {
-              populateCorporateDetails();
-              populateDivisionContacts();
-            } else {
-              console.error('Failed to load CSV data for contact page:', state.errors);
-            }
-          });
-        }
-        setupContactForm();
+
+  <script src="script.js?v=2.0" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setupContactForm();
+    });
+
+    function setupContactForm() {
+      const form = document.getElementById("contact-form");
+      if (!form) return;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Mock submission
+        alert("Thank you for your message. We will be in touch shortly.");
+        form.reset();
       });
+    }
+  </script>
+</body>
 
-      function populateCorporateDetails() {
-        const container = document.getElementById("corporate-contact");
-        if (!container || !window.csvManager.isDataReady()) return;
-
-        const office = window.csvManager.getCorporateOffice();
-        if (!office.company_name) return;
-        container.innerHTML = `
-                <p><strong>Address:</strong></p>
-                <p>${office.street_address}</p>
-                <p>${office.city}, ${office.state} ${office.zip}</p>
-                <p><strong>Phone:</strong> ${office.phone}</p>
-                ${
-                  office.website
-                    ? `<p><strong>Website:</strong> <a href="https://${office.website}" target="_blank">${office.website}</a></p>`
-                    : ""
-                }
-                <p><strong>County:</strong> ${office.county} County</p>
-            `;
-      }
-
-      function populateDivisionContacts() {
-        // Populate newspapers contacts
-        const newspapersContainer = document.getElementById(
-          "newspapers-contacts"
-        );
-        const newspapers = window.csvManager.getDataset('newspapers');
-        if (newspapersContainer && newspapers.length) {
-          let html = '<div class="contacts-list">';
-          newspapers.forEach((newspaper) => {
-            html += `
-                        <div class="contact-item">
-                            <h3>${newspaper.newspaper_name}</h3>
-                            <p>${newspaper.city}, ${newspaper.state}</p>
-                            <p>Phone: ${newspaper.phone}</p>
-                            ${
-                              newspaper.website
-                                ? `<p><a href="https://${newspaper.website}" target="_blank">${newspaper.website}</a></p>`
-                                : ""
-                            }
-                        </div>
-                    `;
-          });
-          html += "</div>";
-          newspapersContainer.innerHTML = html;
-        }
-
-        // Populate radio contacts
-        const radioContainer = document.getElementById("radio-contacts");
-        const radioNetworks = window.csvManager.getDataset('radioNetworks');
-        if (radioContainer && radioNetworks.length) {
-          let html = '<div class="contacts-list">';
-          radioNetworks.forEach((network) => {
-            html += `
-                        <div class="contact-item">
-                            <h3>${network.radio_network}</h3>
-                            <p>${network.city}, ${network.state}</p>
-                            <p>Phone: ${network.phone}</p>
-                            ${
-                              network.website
-                                ? `<p><a href="https://${network.website}" target="_blank">${network.website}</a></p>`
-                                : ""
-                            }
-                        </div>
-                    `;
-          });
-          html += "</div>";
-          radioContainer.innerHTML = html;
-        }
-
-        // Populate printing contacts
-        const printingContainer = document.getElementById("printing-contacts");
-        const printingCompanies = window.csvManager.getDataset('printingCompanies');
-        if (printingContainer && printingCompanies.length) {
-          let html = '<div class="contacts-list">';
-          printingCompanies.forEach((company) => {
-            html += `
-                        <div class="contact-item">
-                            <h3>${company.printing_company}</h3>
-                            <p>${company.city}, ${company.state}</p>
-                            <p>Phone: ${company.phone}</p>
-                            ${
-                              company.website
-                                ? `<p><a href="https://${company.website}" target="_blank">${company.website}</a></p>`
-                                : ""
-                            }
-                        </div>
-                    `;
-          });
-          html += "</div>";
-          printingContainer.innerHTML = html;
-        }
-      }
-
-      function setupContactForm() {
-        const form = document.getElementById("contact-form");
-        if (!form) return;
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Get form data
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData);
-
-          // Basic validation
-          if (
-            !data.firstName ||
-            !data.lastName ||
-            !data.email ||
-            !data.subject ||
-            !data.message
-          ) {
-            window.edwardsGroup.showMessage(
-              "Please fill in all required fields.",
-              "error"
-            );
-            return;
-          }
-
-          // Email validation
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(data.email)) {
-            window.edwardsGroup.showMessage(
-              "Please enter a valid email address.",
-              "error"
-            );
-            return;
-          }
-
-          // Phone validation (if provided)
-          if (data.phone && !/^[\+]?[0-9\s\-\(\)]{10,20}$/.test(data.phone)) {
-            window.edwardsGroup.showMessage(
-              "Please enter a valid phone number.",
-              "error"
-            );
-            return;
-          }
-
-          // Message length validation
-          if (data.message.length > 2000) {
-            window.edwardsGroup.showMessage(
-              "Message must be under 2000 characters.",
-              "error"
-            );
-            return;
-          }
-
-          // Submit form
-          const submitButton = form.querySelector('button[type="submit"]');
-          const originalText = submitButton.textContent;
-          submitButton.textContent = "Sending...";
-          submitButton.disabled = true;
-
-          // Send to PHP handler
-          fetch("simple_email.php", {
-            method: "POST",
-            body: formData,
-          })
-            .then((response) => response.json())
-            .then((result) => {
-              if (result.success) {
-                window.edwardsGroup.showMessage(result.message, "success");
-                form.reset();
-              } else {
-                window.edwardsGroup.showMessage(
-                  result.message || "An error occurred. Please try again.",
-                  "error"
-                );
-              }
-            })
-            .catch((error) => {
-              console.error("Form submission error:", error);
-              window.edwardsGroup.showMessage(
-                "Unable to send message. Please try again or contact us directly.",
-                "error"
-              );
-            })
-            .finally(() => {
-              submitButton.textContent = originalText;
-              submitButton.disabled = false;
-            });
-        });
-      }
-    </script>
-
-    <style>
-      .corporate-contact,
-      .contact-by-division,
-      .contact-by-location,
-      .contact-form-section,
-      .emergency-contact {
-        padding: 4rem 0;
-      }
-
-      .contact-by-division {
-        background-color: var(--background-light);
-      }
-
-      .contact-form-section {
-        background-color: var(--background-light);
-      }
-
-      .corporate-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: start;
-      }
-
-      .corporate-details {
-        background-color: white;
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-
-      .corporate-details h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-
-      .contact-details p {
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-      }
-
-      .contact-details strong {
-        color: var(--text-primary);
-      }
-
-      .corporate-inquiries h3 {
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-      }
-
-      .inquiry-item {
-        margin-bottom: 2rem;
-      }
-
-      .inquiry-item h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .inquiry-item p {
-        color: var(--text-secondary);
-      }
-
-      .divisions-contact {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-      }
-
-      .division-contact-card {
-        background-color: white;
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        text-align: center;
-      }
-
-      .division-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-
-      .division-contact-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-
-      .division-contact-card p {
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-      }
-
-      .contacts-list {
-        text-align: left;
-      }
-
-      .contact-item {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-      }
-
-      .contact-item:last-child {
-        margin-bottom: 0;
-      }
-
-      .contact-item h5 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .contact-item p {
-        margin-bottom: 0.25rem;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-      }
-
-      .locations-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
-      }
-
-      .location-contact-card {
-        background-color: white;
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-
-      .location-contact-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-      }
-
-      .location-details h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .location-details > p {
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-      }
-
-      .property {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-      }
-
-      .property:last-child {
-        margin-bottom: 0;
-      }
-
-      .property h5 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .property p {
-        margin-bottom: 0.25rem;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-      }
-
-      .form-container {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
-        align-items: start;
-      }
-
-      .form-intro h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-
-      .form-intro p {
-        color: var(--text-secondary);
-        margin-bottom: 2rem;
-      }
-
-      .form-tips {
-        background-color: white;
-        padding: 1.5rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-
-      .form-tips h4 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-
-      .form-tips ul {
-        padding-left: 1.5rem;
-      }
-
-      .form-tips li {
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-      }
-
-      .contact-form {
-        background-color: white;
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .form-group {
-        margin-bottom: 1rem;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: var(--text-primary);
-        font-weight: 600;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 0.75rem;
-        border: 2px solid var(--border-color);
-        border-radius: var(--border-radius);
-        font-size: 1rem;
-        transition: var(--transition);
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--accent-color);
-      }
-
-      .checkbox-label {
-        display: flex !important;
-        align-items: center;
-        gap: 0.5rem;
-        cursor: pointer;
-      }
-
-      .checkbox-label input[type="checkbox"] {
-        width: auto;
-        margin: 0;
-      }
-
-      .emergency-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-
-      .emergency-card {
-        background-color: white;
-        padding: 2rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-      }
-
-      .emergency-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-
-      .emergency-card p {
-        color: var(--text-secondary);
-        margin-bottom: 1rem;
-      }
-
-      .emergency-card ul {
-        padding-left: 1.5rem;
-      }
-
-      .emergency-card li {
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-      }
-
-      @media (max-width: 768px) {
-        .corporate-info {
-          grid-template-columns: 1fr;
-        }
-
-        .divisions-contact {
-          grid-template-columns: 1fr;
-        }
-
-        .locations-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .form-container {
-          grid-template-columns: 1fr;
-        }
-
-        .form-row {
-          grid-template-columns: 1fr;
-        }
-
-        .emergency-info {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </body>
 </html>

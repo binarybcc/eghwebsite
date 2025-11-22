@@ -30,7 +30,7 @@ class EdwardsGroupWebsite {
             // Use CSV manager instead of direct loading
             const result = await window.csvManager.waitForReady();
             this.data = result.data;
-            
+
             if (result.state.hasError) {
                 console.warn('CSV data loaded with errors:', result.state.errors);
             }
@@ -133,10 +133,11 @@ class EdwardsGroupWebsite {
 
         this.data.leadership.forEach(leader => {
             const card = document.createElement('div');
-            card.className = 'leadership-card';
+            card.className = 'card leadership-card';
+            card.style.padding = 'var(--space-6)';
             card.innerHTML = `
-                <h3>${leader.first_name} ${leader.last_name}</h3>
-                <p>${leader.position}</p>
+                <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2)">${leader.first_name} ${leader.last_name}</h3>
+                <p class="text-muted" style="margin-bottom: 0">${leader.position}</p>
             `;
             container.appendChild(card);
         });
@@ -176,66 +177,135 @@ class EdwardsGroupWebsite {
             });
         });
 
-        // Mobile navigation toggle (if needed)
+        // Mobile navigation toggle
         this.setupMobileNavigation();
 
-        // Form submissions (if any forms are added)
+        // Form submissions
         this.setupFormHandlers();
 
         // Accessibility improvements
         this.setupAccessibilityFeatures();
+
+        // WOW Features
+        this.setupWowFeatures();
+    }
+
+    setupWowFeatures() {
+        // 1. Parallax Hero Effect
+        const heroBg = document.querySelector('.hero-bg');
+        if (heroBg) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                // Only apply if hero is in view
+                if (scrolled < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+                }
+            });
+        }
+
+        // 2. Card Tilt Effect (Desktop only)
+        if (window.matchMedia('(min-width: 1024px)').matches) {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'none';
+                });
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * -2; // Max rotation deg
+                    const rotateY = ((x - centerX) / centerX) * 2;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transition = 'all 0.3s ease';
+                    card.style.transform = 'translateY(0)'; // Reset
+                    setTimeout(() => {
+                        card.style.transition = ''; // Clear inline transition to revert to CSS
+                    }, 300);
+                });
+            });
+        }
+
+        // 3. Mobile Swipe Navigation
+        this.setupSwipeNavigation();
+    }
+
+    setupSwipeNavigation() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const navMenu = document.querySelector('.nav-menu');
+        const toggleButton = document.querySelector('.mobile-toggle');
+
+        if (!navMenu || !toggleButton) return;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX, navMenu, toggleButton);
+        }, { passive: true });
+    }
+
+    handleSwipe(startX, endX, navMenu, toggleButton) {
+        const threshold = 100; // Min distance for swipe
+        const swipeDistance = endX - startX;
+
+        // Swipe Left to Close
+        if (navMenu.classList.contains('active') && swipeDistance > threshold) { // Swiping right actually closes it if it's on the right? No, menu is on right.
+            // If menu is right: -100% (hidden) -> 0 (visible).
+            // To close (0 -> -100%), we swipe RIGHT (positive distance)? 
+            // Wait, menu slides in from RIGHT. So it's at right: 0.
+            // To close, we want to push it back to right. So swipe RIGHT (towards edge).
+            this.toggleMenu(navMenu, toggleButton, false);
+        }
+
+        // Swipe Left to Open (from edge)
+        // Only if starting near right edge
+        if (!navMenu.classList.contains('active') && startX > window.innerWidth - 50 && swipeDistance < -threshold) {
+            this.toggleMenu(navMenu, toggleButton, true);
+        }
+    }
+
+    toggleMenu(navMenu, toggleButton, show) {
+        if (show) {
+            navMenu.classList.add('active');
+            toggleButton.setAttribute('aria-expanded', 'true');
+            toggleButton.innerHTML = '✕';
+        } else {
+            navMenu.classList.remove('active');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            toggleButton.innerHTML = '☰';
+        }
     }
 
     setupMobileNavigation() {
-        // Check if mobile navigation is needed
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-
-        // Add mobile menu toggle if screen is small
-        const mediaQuery = window.matchMedia('(max-width: 768px)');
-        
-        if (mediaQuery.matches) {
-            this.createMobileMenu();
-        }
-
-        mediaQuery.addEventListener('change', (e) => {
-            if (e.matches) {
-                this.createMobileMenu();
-            } else {
-                this.removeMobileMenu();
-            }
-        });
-    }
-
-    createMobileMenu() {
+        const toggleButton = document.querySelector('.mobile-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        if (!navMenu || navMenu.classList.contains('mobile-menu-active')) return;
 
-        const toggleButton = document.createElement('button');
-        toggleButton.className = 'mobile-menu-toggle';
-        toggleButton.innerHTML = '☰';
-        toggleButton.setAttribute('aria-label', 'Toggle navigation menu');
-
-        const navbar = document.querySelector('.navbar .container');
-        navbar.insertBefore(toggleButton, navMenu);
+        if (!toggleButton || !navMenu) return;
 
         toggleButton.addEventListener('click', () => {
-            navMenu.classList.toggle('mobile-menu-active');
-            toggleButton.innerHTML = navMenu.classList.contains('mobile-menu-active') ? '✕' : '☰';
+            const isExpanded = navMenu.classList.contains('active');
+            this.toggleMenu(navMenu, toggleButton, !isExpanded);
         });
-    }
 
-    removeMobileMenu() {
-        const toggleButton = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (toggleButton) {
-            toggleButton.remove();
-        }
-        
-        if (navMenu) {
-            navMenu.classList.remove('mobile-menu-active');
-        }
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                this.toggleMenu(navMenu, toggleButton, false);
+            });
+        });
     }
 
     setupFormHandlers() {
@@ -253,21 +323,22 @@ class EdwardsGroupWebsite {
         // Basic form validation and submission handling
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        
+
         // Here you would typically send the data to a server
         console.log('Form submission:', data);
-        
+
         // Show success message
         this.showMessage('Thank you for your message. We will get back to you soon!', 'success');
+        form.reset();
     }
 
     setupAccessibilityFeatures() {
         // Add skip navigation link
         this.addSkipNavigation();
-        
+
         // Ensure proper focus management
         this.setupFocusManagement();
-        
+
         // Add keyboard navigation for dropdowns
         this.setupKeyboardNavigation();
     }
@@ -281,7 +352,7 @@ class EdwardsGroupWebsite {
             position: absolute;
             top: -40px;
             left: 6px;
-            background: var(--primary-color);
+            background: var(--color-accent);
             color: white;
             padding: 8px;
             text-decoration: none;
@@ -289,27 +360,27 @@ class EdwardsGroupWebsite {
             z-index: 1000;
             transition: top 0.3s;
         `;
-        
+
         skipLink.addEventListener('focus', () => {
             skipLink.style.top = '6px';
         });
-        
+
         skipLink.addEventListener('blur', () => {
             skipLink.style.top = '-40px';
         });
-        
+
         document.body.insertBefore(skipLink, document.body.firstChild);
     }
 
     setupFocusManagement() {
         // Ensure focus is visible and properly managed
         const focusableElements = document.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
-        
+
         focusableElements.forEach(element => {
             element.addEventListener('focus', () => {
                 element.setAttribute('data-focus-visible', 'true');
             });
-            
+
             element.addEventListener('blur', () => {
                 element.removeAttribute('data-focus-visible');
             });
@@ -319,11 +390,11 @@ class EdwardsGroupWebsite {
     setupKeyboardNavigation() {
         // Add keyboard support for dropdown menus
         const dropdowns = document.querySelectorAll('.dropdown');
-        
+
         dropdowns.forEach(dropdown => {
             const toggle = dropdown.querySelector('a');
             const menu = dropdown.querySelector('.dropdown-menu');
-            
+
             if (toggle && menu) {
                 toggle.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -352,14 +423,14 @@ class EdwardsGroupWebsite {
             transform: translateX(100%);
             transition: transform 0.3s ease;
         `;
-        
+
         document.body.appendChild(messageDiv);
-        
+
         // Animate in
         setTimeout(() => {
             messageDiv.style.transform = 'translateX(0)';
         }, 100);
-        
+
         // Remove after 5 seconds
         setTimeout(() => {
             messageDiv.style.transform = 'translateX(100%)';
@@ -394,7 +465,7 @@ class EdwardsGroupWebsite {
     setupLazyLoading() {
         // Lazy loading for team photos and other images
         const lazyImages = document.querySelectorAll('img[data-src]');
-        
+
         if ('IntersectionObserver' in window) {
             const lazyImageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -423,7 +494,7 @@ class EdwardsGroupWebsite {
     // WebP support detection and implementation
     setupWebPSupport() {
         // Check if browser supports WebP
-        const webpSupported = (function() {
+        const webpSupported = (function () {
             const canvas = document.createElement('canvas');
             canvas.width = 1;
             canvas.height = 1;
@@ -444,144 +515,4 @@ class EdwardsGroupWebsite {
 document.addEventListener('DOMContentLoaded', () => {
     window.edwardsGroup = new EdwardsGroupWebsite();
 });
-
-// Export for potential use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = EdwardsGroupWebsite;
-}
-
-// Team Section Toggle Functionality
-function toggleTeam(teamId) {
-    const teamGallery = document.getElementById(teamId);
-    const toggleIcon = document.getElementById(teamId.replace('-team', '-toggle'));
-    
-    if (!teamGallery || !toggleIcon) return;
-    
-    if (teamGallery.classList.contains('hidden')) {
-        // Show the team gallery
-        teamGallery.classList.remove('hidden');
-        teamGallery.classList.add('show');
-        toggleIcon.textContent = '−';
-        toggleIcon.setAttribute('aria-expanded', 'true');
-    } else {
-        // Hide the team gallery
-        teamGallery.classList.remove('show');
-        teamGallery.classList.add('hidden');
-        toggleIcon.textContent = '+';
-        toggleIcon.setAttribute('aria-expanded', 'false');
-    }
-}
-
-// Initialize team toggles on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Set up accessibility attributes for team toggles
-    const teamToggles = document.querySelectorAll('.team-toggle');
-    teamToggles.forEach(toggle => {
-        toggle.setAttribute('role', 'button');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('tabindex', '0');
-        
-        // Add keyboard support
-        toggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggle.click();
-            }
-        });
-    });
-    
-    // Set up initial states for all team galleries
-    const teamGalleries = document.querySelectorAll('.team-gallery');
-    teamGalleries.forEach(gallery => {
-        gallery.classList.add('hidden');
-    });
-    
-    // Set up initial states for all toggle icons
-    const toggleIcons = document.querySelectorAll('.toggle-icon');
-    toggleIcons.forEach(icon => {
-        icon.textContent = '+';
-        icon.setAttribute('aria-expanded', 'false');
-    });
-    
-    // Initialize photo modal functionality
-    initializePhotoModal();
-});
-
-// Photo Modal System
-function initializePhotoModal() {
-    // Create modal HTML structure
-    const modal = document.createElement('div');
-    modal.className = 'photo-modal';
-    modal.innerHTML = `
-        <div class="photo-modal-content">
-            <img class="photo-modal-image" src="" alt="">
-            <button class="photo-modal-close" aria-label="Close photo">×</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    
-    // Get modal elements
-    const modalImage = modal.querySelector('.photo-modal-image');
-    const closeButton = modal.querySelector('.photo-modal-close');
-    
-    // Add click handlers to all team photos
-    const teamPhotos = document.querySelectorAll('.team-photo');
-    teamPhotos.forEach(photo => {
-        photo.addEventListener('click', function(e) {
-            e.preventDefault();
-            openPhotoModal(this.src, this.alt);
-        });
-        
-        // Add keyboard support
-        photo.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openPhotoModal(this.src, this.alt);
-            }
-        });
-        
-        // Make photos focusable
-        photo.setAttribute('tabindex', '0');
-        photo.setAttribute('role', 'button');
-        photo.setAttribute('aria-label', 'Click to view larger photo');
-    });
-    
-    // Close modal handlers
-    closeButton.addEventListener('click', closePhotoModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closePhotoModal();
-        }
-    });
-    
-    // Keyboard handlers
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closePhotoModal();
-        }
-    });
-    
-    function openPhotoModal(src, alt) {
-        modalImage.src = src;
-        modalImage.alt = alt;
-        modal.classList.add('show');
-        document.body.classList.add('modal-open');
-        
-        // Focus management
-        closeButton.focus();
-    }
-    
-    function closePhotoModal() {
-        modal.classList.remove('show');
-        document.body.classList.remove('modal-open');
-        modalImage.src = '';
-        modalImage.alt = '';
-        
-        // Return focus to the photo that was clicked
-        const activePhoto = document.activeElement;
-        if (activePhoto && activePhoto.classList.contains('team-photo')) {
-            activePhoto.focus();
-        }
-    }
-}
 
