@@ -45,9 +45,8 @@
                 </li>
                 <li><a href="about.html" class="nav-link">About Us</a></li>
                 <li><a href="leadership.html" class="nav-link">Leadership</a></li>
-                <li><a href="careers.html" class="nav-link">Careers</a></li>
                 <li><a href="https://portal.edwards-group.com" class="nav-link" target="_blank">Employee Portal</a></li>
-                <li><a href="contact.html" class="btn btn--primary">Contact Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -88,70 +87,11 @@
                         listeners daily.
                     </p>
                 </div>
-                <div class="grid grid--3">
-                    <div class="card">
-                        <h3>Wyotoday</h3>
-                        <div class="mb-4">
-                            <p class="text-sm font-bold">Riverton, WY</p>
-                            <p class="text-sm text-muted">Fremont County</p>
-                            <p class="text-sm mt-2">Phone: 307-856-2277</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="text-sm font-bold mb-2">Stations (5)</h4>
-                            <ul class="market-list text-sm">
-                                <li>KTAK 93.9 FM Wyoming's BIG Country</li>
-                                <li>KFCW 93.1 FM Wind River's Rock</li>
-                                <li>KDNO 101.7 FM Classic Country Legends</li>
-                                <li>KVOW 1450 AM Talk of Fremont</li>
-                                <li>KWYW 99.1 FM The Heat</li>
-                            </ul>
-                        </div>
-                        <div class="flex gap-2 flex-wrap mt-auto">
-                            <a href="https://wyotoday.com" target="_blank" class="btn btn--secondary text-sm">Visit
-                                Website</a>
-                            <a href="contact.html#contact-form" class="btn btn--primary text-sm">Contact</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>True North Radio Network</h3>
-                        <div class="mb-4">
-                            <p class="text-sm font-bold">Alpena, MI</p>
-                            <p class="text-sm text-muted"> County</p>
-                            <p class="text-sm mt-2">Phone: 989-354-4611</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="text-sm font-bold mb-2">Stations (3)</h4>
-                            <ul class="market-list text-sm">
-                                <li>WHSB 107.7 The Bay</li>
-                                <li>WHAK 99.1 The Wave</li>
-                                <li>WWTH 100.7 Thunder 100.7</li>
-                            </ul>
-                        </div>
-                        <div class="flex gap-2 flex-wrap mt-auto">
-                            <a href="https://truenorthradionetwork.com" target="_blank"
-                                class="btn btn--secondary text-sm">Visit Website</a>
-                            <a href="contact.html#contact-form" class="btn btn--primary text-sm">Contact</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Caro</h3>
-                        <div class="mb-4">
-                            <p class="text-sm font-bold">Caro, MI</p>
-                            <p class="text-sm text-muted">Tuscola County</p>
-                            <p class="text-sm mt-2">Phone: 989-673-3181</p>
-                        </div>
-                        <div class="mb-4">
-                            <h4 class="text-sm font-bold mb-2">Stations (2)</h4>
-                            <ul class="market-list text-sm">
-                                <li>WIDL 92.1 Classic Rock</li>
-                                <li>WKYO 1360 Country</li>
-                            </ul>
-                        </div>
-                        <div class="flex gap-2 flex-wrap mt-auto">
-                            <a href="https://classicrocki92.com/" target="_blank"
-                                class="btn btn--secondary text-sm">Visit Website</a>
-                            <a href="contact.html#contact-form" class="btn btn--primary text-sm">Contact</a>
-                        </div>
+                <!-- Radio network cards will be dynamically loaded from radio_networks.csv -->
+                <div id="radio-networks-grid" class="grid grid--3">
+                    <!-- Loading indicator -->
+                    <div class="card" style="grid-column: 1 / -1; text-align: center; padding: var(--space-8);">
+                        <p class="text-muted">Loading radio networks...</p>
                     </div>
                 </div>
             </div>
@@ -407,7 +347,6 @@
                     <ul class="footer-links">
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="careers.html">Careers</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -418,7 +357,8 @@
         </div>
     </footer>
 
-
+    <!-- Scripts -->
+    <script src="csv-manager.js"></script>
     <script src="script.js?v=2.0" defer></script>
 
 </body>

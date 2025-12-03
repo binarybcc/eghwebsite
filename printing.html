@@ -45,9 +45,8 @@
         </li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
         <li><a href="leadership.html" class="nav-link">Leadership</a></li>
-        <li><a href="careers.html" class="nav-link">Careers</a></li>
         <li><a href="https://portal.edwards-group.com" class="nav-link" target="_blank">Employee Portal</a></li>
-        <li><a href="contact.html" class="btn btn--primary">Contact Us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
       </ul>
     </div>
   </nav>
@@ -89,47 +88,11 @@
             regions.
           </p>
         </div>
-        <div class="grid grid--3">
-          <div class="card">
-            <div class="card-icon">🖨️</div>
-            <h3 class="card-title">The Journal Digital Press</h3>
-            <p class="text-accent text-sm mb-2">Seneca, SC</p>
-            <p class="card-text mb-4">High-quality digital printing services for Oconee County.</p>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <a href="https://journaldigitalpress.com" class="btn btn--secondary w-full" target="_blank">Visit
-                Website</a>
-              <p class="text-sm text-center mt-2 text-muted">864-882-2375</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">🖨️</div>
-            <h3 class="card-title">Edwards Printing</h3>
-            <p class="text-accent text-sm mb-2">Westminster, SC</p>
-            <p class="card-text mb-4">Commercial printing solutions for businesses of all sizes.</p>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <a href="https://edwprinting.com" class="btn btn--secondary w-full" target="_blank">Visit Website</a>
-              <p class="text-sm text-center mt-2 text-muted">864-324-0642</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">🖨️</div>
-            <h3 class="card-title">Heritage Press</h3>
-            <p class="text-accent text-sm mb-2">Caro, MI</p>
-            <p class="card-text mb-4">Serving the printing needs of the Thumb region.</p>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <a href="https://heritage-press.com" class="btn btn--secondary w-full" target="_blank">Visit Website</a>
-              <p class="text-sm text-center mt-2 text-muted">989-673-3181</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">🖨️</div>
-            <h3 class="card-title">Ranger Printers</h3>
-            <p class="text-accent text-sm mb-2">Riverton, WY</p>
-            <p class="card-text mb-4">Quality printing services for Fremont County.</p>
-            <div class="mt-auto pt-4 border-t border-slate-100">
-              <a href="https://rangerprinters.com" class="btn btn--secondary w-full" target="_blank">Visit Website</a>
-              <p class="text-sm text-center mt-2 text-muted">307-856-2277</p>
-            </div>
+        <!-- Printing company cards will be dynamically loaded from printing_companies.csv -->
+        <div id="printing-companies-grid" class="grid grid--3">
+          <!-- Loading indicator -->
+          <div class="card" style="grid-column: 1 / -1; text-align: center; padding: var(--space-8);">
+            <p class="text-muted">Loading printing companies...</p>
           </div>
         </div>
       </div>
@@ -318,7 +281,6 @@
           <ul class="footer-links">
             <li><a href="about.html">About Us</a></li>
             <li><a href="leadership.html">Leadership</a></li>
-            <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -329,7 +291,8 @@
     </div>
   </footer>
 
-
+  <!-- Scripts -->
+  <script src="csv-manager.js"></script>
   <script src="script.js?v=2.0" defer></script>
 
 </body>

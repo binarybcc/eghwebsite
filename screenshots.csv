@@ -1,0 +1,15 @@
+division,property_name,url,main_filename,thumb_filename,viewport_width,viewport_height,wait_seconds
+publishing,The Journal,https://upstatetoday.com,tj-main.webp,tj-thumb.webp,1200,900,10
+publishing,The Ranger,https://rivertonranger.com,tr-main.webp,tr-thumb.webp,1200,900,3
+publishing,The Lander Journal,https://thelanderjournal.com,lj-main.webp,lj-thumb.webp,1200,900,3
+publishing,The Advertiser,https://tuscolatoday.com,ta-main.webp,ta-thumb.webp,1200,900,3
+radio,WyoToday Network,https://wyotoday.com,wy-main.webp,wy-thumb.webp,1200,900,10
+radio,True North Radio - News,https://truenorthradionetwork.com,tn-main.webp,tn-thumb.webp,1200,900,10
+radio,WIDL,https://classicrocki92.com/,ta-widl-main.webp,ta-widl-thumb.webp,1200,900,3
+publishing,Cass River Trader,https://class.tuscolatoday.com,ta-crt-main.webp,ta-crt-thumb.webp,1200,900,3
+publishing,Edwards Printing,https://edwprinting.com,tj-edwp-main.webp,tj-edwp-thumb.webp,1200,900,3
+radio,KTAK,https://wyotoday.com/ktak/,wy-ktak-main.webp,wy-ktak-thumb.webp,1200,900,10
+radio,KWYW,https://wyotoday.com/kwyw/,wy-kwyw-main.webp,wy-kwyw-thumb.webp,1200,900,3
+radio,KVOW,https://wyotoday.com/kvow/,wy-kvow-main.webp,wy-kvow-thumb.webp,1200,900,10
+radio,KDNO,https://wyotoday.com/kdno/,wy-kdno-main.webp,wy-kdno-thumb.webp,1200,900,10
+radio,KFCW,https://wyotoday.com/kfcw/,wy-kfcw-main.webp,wy-kfcw-thumb.webp,1200,900,10

@@ -43,7 +43,9 @@ class EdwardsGroupWebsite {
         this.populateNewspapersList();
         this.populateNewspapersGrid();
         this.populateRadioList();
+        this.populateRadioNetworksGrid();
         this.populatePrintingList();
+        this.populatePrintingCompaniesGrid();
         this.populateLeadershipGrid();
         this.populateCorporateContact();
     }
@@ -69,21 +71,72 @@ class EdwardsGroupWebsite {
         const container = document.getElementById('newspapers-grid');
         if (!container || !this.data.newspapers.length) return;
 
+        // Clear loading indicator
+        container.innerHTML = '';
+
+        // Helper function to generate screenshot path from newspaper name
+        const getScreenshotPath = (newspaperName) => {
+            const map = {
+                'The Journal': 'tj-thumb.webp',
+                'The Advertiser': 'ta-thumb.webp',
+                'The Ranger': 'tr-thumb.webp',
+                'The Lander Journal': 'lj-thumb.webp',
+                'Wind River News': 'wrn-thumb.svg'
+            };
+            return map[newspaperName] || 'placeholder-thumb.svg';
+        };
+
+        // Helper function to generate media properties anchor
+        const getMediaPropertiesAnchor = (newspaperName) => {
+            return newspaperName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        };
+
         this.data.newspapers.forEach(newspaper => {
             const card = document.createElement('div');
-            card.className = 'newspaper-card';
+            card.className = 'card';
+
+            const screenshotPath = getScreenshotPath(newspaper.newspaper_name);
+            const mediaAnchor = getMediaPropertiesAnchor(newspaper.newspaper_name);
+
             card.innerHTML = `
                 <h3>${newspaper.newspaper_name}</h3>
-                <div class="newspaper-details">
-                    <p><strong>Location:</strong> ${newspaper.city}, ${newspaper.state}</p>
-                    <p><strong>County:</strong> ${newspaper.county} County</p>
-                    ${newspaper.street_address ? `<p><strong>Address:</strong> ${newspaper.street_address}</p>` : ''}
-                    <p><strong>Phone:</strong> ${newspaper.phone}</p>
-                    ${newspaper.website ? `<p><strong>Website:</strong> <a href="https://${newspaper.website}" target="_blank">${newspaper.website}</a></p>` : ''}
+
+                ${newspaper.website ? `
+                <!-- Website Preview -->
+                <a href="https://${newspaper.website}" target="_blank" rel="noopener" class="property-preview">
+                    <img src="assets/screenshots/publishing/${screenshotPath}"
+                         alt="${newspaper.newspaper_name} Homepage"
+                         class="screenshot-thumb"
+                         loading="lazy">
+                    <div class="preview-overlay">
+                        <span class="preview-text">Visit Site →</span>
+                    </div>
+                </a>
+                ` : `
+                <!-- No Website Preview -->
+                <div class="property-preview">
+                    <img src="assets/screenshots/publishing/${screenshotPath}"
+                         alt="${newspaper.newspaper_name}"
+                         class="screenshot-thumb"
+                         loading="lazy">
                 </div>
-                <div class="newspaper-actions">
-                    ${newspaper.website ? `<a href="https://${newspaper.website}" target="_blank" class="btn-primary">Visit Website</a>` : ''}
-                    <a href="contact.html" class="btn-secondary">Contact</a>
+                `}
+
+                <div class="mb-4">
+                    <p class="text-sm font-bold">${newspaper.city}, ${newspaper.state}</p>
+                    ${newspaper.county ? `<p class="text-sm text-muted">${newspaper.county} County</p>` : ''}
+                    ${newspaper.street_address ? `<p class="text-sm text-muted">${newspaper.street_address}</p>` : ''}
+                    ${newspaper.phone ? `<p class="text-sm mt-2">Phone: ${newspaper.phone}</p>` : ''}
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-bold mb-2">Coverage</h4>
+                    <p class="text-sm text-muted">Local news, sports, and community events for ${newspaper.city} and surrounding areas.</p>
+                </div>
+
+                <div class="property-meta">
+                    ${newspaper.website ? `<span class="property-badge">${newspaper.website}</span>` : '<span class="property-badge">Print Edition</span>'}
+                    <a href="media-properties.html#${mediaAnchor}" class="text-accent text-sm" style="font-weight: 600;">View Details →</a>
                 </div>
             `;
             container.appendChild(card);
@@ -107,6 +160,98 @@ class EdwardsGroupWebsite {
         container.appendChild(ul);
     }
 
+    populateRadioNetworksGrid() {
+        const container = document.getElementById('radio-networks-grid');
+        if (!container || !this.data.radioNetworks.length) return;
+
+        // Clear loading indicator
+        container.innerHTML = '';
+
+        // Helper function to generate screenshot path from network name
+        const getScreenshotPath = (networkName) => {
+            const map = {
+                'Wyotoday': 'wy-thumb.webp',
+                'True North Radio Network': 'tn-thumb.webp',
+                'Caro': 'ta-widl-thumb.webp'
+            };
+            return map[networkName] || 'placeholder-thumb.svg';
+        };
+
+        // Helper function to generate media properties anchor
+        const getMediaPropertiesAnchor = (networkName) => {
+            const map = {
+                'Wyotoday': 'wyotoday-network',
+                'True North Radio Network': 'true-north-radio',
+                'Caro': 'widl-radio'
+            };
+            return map[networkName] || networkName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        };
+
+        this.data.radioNetworks.forEach(network => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const screenshotPath = getScreenshotPath(network.radio_network);
+            const mediaAnchor = getMediaPropertiesAnchor(network.radio_network);
+
+            // Build stations list
+            let stationsList = '';
+            for (let i = 1; i <= 5; i++) {
+                const station = network[`station_${i}`];
+                if (station && station.trim()) {
+                    stationsList += `<li>${station}</li>`;
+                }
+            }
+
+            // Clean up website URL (remove https:// if present)
+            let websiteDisplay = network.website ? network.website.replace(/^https?:\/\//, '') : '';
+
+            card.innerHTML = `
+                <h3>${network.radio_network}</h3>
+
+                ${network.website ? `
+                <!-- Website Preview -->
+                <a href="https://${websiteDisplay}" target="_blank" rel="noopener" class="property-preview">
+                    <img src="assets/screenshots/radio/${screenshotPath}"
+                         alt="${network.radio_network} Homepage"
+                         class="screenshot-thumb"
+                         loading="lazy">
+                    <div class="preview-overlay">
+                        <span class="preview-text">Visit Site →</span>
+                    </div>
+                </a>
+                ` : `
+                <!-- No Website Preview -->
+                <div class="property-preview">
+                    <img src="assets/screenshots/radio/${screenshotPath}"
+                         alt="${network.radio_network}"
+                         class="screenshot-thumb"
+                         loading="lazy">
+                </div>
+                `}
+
+                <div class="mb-4">
+                    <p class="text-sm font-bold">${network.city}, ${network.state}</p>
+                    ${network.county ? `<p class="text-sm text-muted">${network.county} County</p>` : ''}
+                    ${network.phone ? `<p class="text-sm mt-2">Phone: ${network.phone}</p>` : ''}
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-bold mb-2">Stations (${network.stations_operated})</h4>
+                    <ul class="market-list text-sm">
+                        ${stationsList}
+                    </ul>
+                </div>
+
+                <div class="property-meta">
+                    ${network.website ? `<span class="property-badge">${websiteDisplay}</span>` : '<span class="property-badge">Radio Network</span>'}
+                    <a href="media-properties.html#${mediaAnchor}" class="text-accent text-sm" style="font-weight: 600;">View Details →</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
     populatePrintingList() {
         const container = document.getElementById('printing-list');
         if (!container || !this.data.printingCompanies.length) return;
@@ -122,6 +267,93 @@ class EdwardsGroupWebsite {
             ul.appendChild(li);
         });
         container.appendChild(ul);
+    }
+
+    populatePrintingCompaniesGrid() {
+        const container = document.getElementById('printing-companies-grid');
+        if (!container || !this.data.printingCompanies.length) return;
+
+        // Clear loading indicator
+        container.innerHTML = '';
+
+        // Helper function to generate screenshot path from company name
+        const getScreenshotPath = (companyName) => {
+            const map = {
+                'The Journal Digital Press': 'tj-dp-thumb.webp',
+                'Edwards Printing': 'ep-thumb.webp',
+                'Heritage Press': 'hp-thumb.webp',
+                'Ranger Printers': 'rp-thumb.webp'
+            };
+            return map[companyName] || 'placeholder-thumb.svg';
+        };
+
+        // Helper function to generate media properties anchor
+        const getMediaPropertiesAnchor = (companyName) => {
+            const map = {
+                'The Journal Digital Press': 'journal-digital-press',
+                'Edwards Printing': 'edwards-printing',
+                'Heritage Press': 'heritage-press',
+                'Ranger Printers': 'ranger-printers'
+            };
+            return map[companyName] || companyName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        };
+
+        // Helper function to generate description
+        const getDescription = (companyName, city) => {
+            const map = {
+                'The Journal Digital Press': 'High-quality digital printing services',
+                'Edwards Printing': 'Commercial printing solutions',
+                'Heritage Press': 'Serving the printing needs of the Thumb region',
+                'Ranger Printers': `Quality printing services for Fremont County`
+            };
+            return map[companyName] || `Professional printing services for ${city} and surrounding areas`;
+        };
+
+        this.data.printingCompanies.forEach(company => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const screenshotPath = getScreenshotPath(company.printing_company);
+            const mediaAnchor = getMediaPropertiesAnchor(company.printing_company);
+            const description = getDescription(company.printing_company, company.city);
+
+            card.innerHTML = `
+                <h3>${company.printing_company}</h3>
+
+                ${company.website ? `
+                <!-- Website Preview -->
+                <a href="https://${company.website}" target="_blank" rel="noopener" class="property-preview">
+                    <img src="assets/screenshots/printing/${screenshotPath}"
+                         alt="${company.printing_company} Homepage"
+                         class="screenshot-thumb"
+                         loading="lazy">
+                    <div class="preview-overlay">
+                        <span class="preview-text">Visit Site →</span>
+                    </div>
+                </a>
+                ` : `
+                <!-- No Website Preview -->
+                <div class="property-preview">
+                    <img src="assets/screenshots/printing/${screenshotPath}"
+                         alt="${company.printing_company}"
+                         class="screenshot-thumb"
+                         loading="lazy">
+                </div>
+                `}
+
+                <div class="mb-4">
+                    <p class="text-sm font-bold">${company.city}, ${company.state}</p>
+                    <p class="text-sm text-muted">${description}</p>
+                    ${company.phone ? `<p class="text-sm mt-2">Phone: ${company.phone}</p>` : ''}
+                </div>
+
+                <div class="property-meta">
+                    ${company.website ? `<span class="property-badge">${company.website}</span>` : `<span class="property-badge">${company.county} County</span>`}
+                    <a href="media-properties.html#${mediaAnchor}" class="text-accent text-sm" style="font-weight: 600;">View Details →</a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
     }
 
     populateLeadershipGrid() {
