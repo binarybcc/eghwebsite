@@ -40,6 +40,7 @@ class EdwardsGroupWebsite {
     }
 
     populateContent() {
+        this.populateHomepageCards();
         this.populateNewspapersList();
         this.populateNewspapersGrid();
         this.populateRadioList();
@@ -48,6 +49,54 @@ class EdwardsGroupWebsite {
         this.populatePrintingCompaniesGrid();
         this.populateLeadershipGrid();
         this.populateCorporateContact();
+    }
+
+    populateHomepageCards() {
+        // Populate Publishing card
+        const publishingList = document.querySelector('.card .market-list');
+        if (publishingList && this.data.newspapers.length) {
+            // Clear existing items
+            while (publishingList.firstChild) {
+                publishingList.removeChild(publishingList.firstChild);
+            }
+            // Add newspaper items
+            this.data.newspapers.forEach(newspaper => {
+                const li = document.createElement('li');
+                li.textContent = `${newspaper.newspaper_name} (${newspaper.city}, ${newspaper.state})`;
+                publishingList.appendChild(li);
+            });
+        }
+
+        // Populate Radio card
+        const radioLists = document.querySelectorAll('.card .market-list');
+        const radioList = radioLists[1]; // Second market-list is for radio
+        if (radioList && this.data.radioNetworks.length) {
+            // Clear existing items
+            while (radioList.firstChild) {
+                radioList.removeChild(radioList.firstChild);
+            }
+            // Add radio network items
+            this.data.radioNetworks.forEach(network => {
+                const li = document.createElement('li');
+                li.textContent = `${network.radio_network} (${network.city}, ${network.state})`;
+                radioList.appendChild(li);
+            });
+        }
+
+        // Populate Printing card
+        const printingList = radioLists[2]; // Third market-list is for printing
+        if (printingList && this.data.printingCompanies.length) {
+            // Clear existing items
+            while (printingList.firstChild) {
+                printingList.removeChild(printingList.firstChild);
+            }
+            // Add printing company items
+            this.data.printingCompanies.forEach(company => {
+                const li = document.createElement('li');
+                li.textContent = `${company.printing_company} (${company.city}, ${company.state})`;
+                printingList.appendChild(li);
+            });
+        }
     }
 
     populateNewspapersList() {
