@@ -36,3 +36,8 @@ private_key.pem
 *.bak
 *.backup
 backups/
+
+# Working Documents
+*.numbers
+*.pages
+*.keynote
