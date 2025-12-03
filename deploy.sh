@@ -118,7 +118,7 @@ REQUIRED_FILES=(
     "index.html"
     "about.html"
     "leadership.html"
-    "careers.html"
+    "media-properties.html"
     "contact.html"
     "publishing.html"
     "radio.html"
@@ -235,7 +235,7 @@ cd public_html
 put index.html
 put about.html
 put leadership.html
-put careers.html
+put media-properties.html
 put contact.html
 put publishing.html
 put radio.html
