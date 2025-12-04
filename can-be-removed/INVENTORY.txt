@@ -1,0 +1,55 @@
+INVENTORY OF REMOVABLE FILES
+=============================
+
+Total Size: 450MB
+
+DIRECTORIES:
+-----------
+1. backups/         (448MB) - Old WordPress production site backups
+2. scripts/         (20KB)  - Screenshot capture scripts (Python, Bash)
+3. temp/            (8KB)   - Temporary development files and screenshots
+
+DOCUMENTATION FILES:
+-------------------
+1. ACCESSIBILITY_FINAL_RESULTS.md  (9.5KB)  - Accessibility audit results
+2. ACCESSIBILITY_REPORT.md         (8.3KB)  - Accessibility testing report
+3. CLAUDE.md                        (13KB)   - Development notes (MOVED)
+4. DEPLOYMENT.md                    (5.6KB)  - Deployment documentation
+5. DEPLOY_README.md                 (2.7KB)  - Deployment guide
+6. LIQUID_GLASS_GUIDE.md           (14KB)   - Design guide
+7. README.md                        (7.3KB)  - Project overview
+8. ROADMAP.md                       (16KB)   - Future development roadmap
+9. SCREENSHOT-REQUIREMENTS.md       (9.6KB)  - Screenshot specifications
+
+SCREENSHOT & IMAGE FILES:
+------------------------
+1. ss1.png           (286KB) - Development screenshot
+2. ss2.png           (288KB) - Development screenshot
+3. ss3.png           (1.3MB) - Development screenshot
+4. screenshots.csv   (1.4KB) - Screenshot tracking data
+
+DEVELOPMENT FILES:
+-----------------
+1. makeenv.txt       (125B)  - Environment file template
+
+ACTION REQUIRED:
+---------------
+To reclaim 450MB of disk space, you can safely delete this entire
+"can-be-removed" folder using:
+
+    rm -rf can-be-removed/
+
+Or review the contents first and selectively remove items.
+
+ESSENTIAL FILES REMAIN IN PROJECT ROOT:
+--------------------------------------
+✓ 8 HTML pages
+✓ styles.css, script.js, csv-manager.js  
+✓ 4 PHP files (email handlers)
+✓ 5 CSV data files
+✓ assets/ directory
+✓ deploy.sh
+✓ .git/ (version control)
+✓ Configuration files (.env, .gitignore)
+
+Created: 2025-12-03
