@@ -82,6 +82,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* Prevent horizontal overflow - mobile-first best practice */
+    overflow-x: hidden;
 }
 
 body {
@@ -90,6 +92,13 @@ body {
     color: var(--color-text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+    /* Ensure body doesn't exceed viewport */
+    max-width: 100%;
+    /* Handle long words that could cause overflow */
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 img {
@@ -141,6 +150,8 @@ p {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 var(--space-4);
+    /* Prevent child overflow */
+    overflow-x: hidden;
 }
 
 .section {
@@ -176,15 +187,18 @@ p {
 }
 
 .grid--2 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Use min() to prevent overflow on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
 .grid--3 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Use min() to prevent overflow on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
 .grid--4 {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Use min() to prevent overflow on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 }
 
 .flex {
@@ -618,7 +632,8 @@ p {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Use min() to prevent overflow on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: var(--space-8);
     margin-bottom: var(--space-12);
 }
@@ -743,7 +758,8 @@ p {
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Use min() to prevent overflow on small screens */
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: var(--space-6);
 }
 
@@ -844,8 +860,19 @@ p {
 /* Mobile Styles */
 @media (max-width: 768px) {
     :root {
-        --text-4xl: 2.5rem;
-        --text-5xl: 3rem;
+        --text-4xl: 2rem;
+        --text-5xl: 2.5rem;
+        --text-3xl: 1.5rem;
+    }
+
+    /* Ensure nothing overflows on mobile */
+    .container {
+        padding: 0 var(--space-3);
+        max-width: 100%;
+    }
+
+    .section {
+        padding: var(--space-8) 0;
     }
 
     .navbar .container {
@@ -858,12 +885,14 @@ p {
         top: 0;
         right: -100%;
         width: 80%;
+        max-width: 320px;
         height: 100vh;
         background: var(--color-primary);
         flex-direction: column;
         padding: var(--space-24) var(--space-8);
         transition: right 0.3s ease-in-out;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 200;
     }
 
     .nav-menu.active {
@@ -872,16 +901,68 @@ p {
 
     .mobile-toggle {
         display: block;
-        z-index: 101;
+        z-index: 201;
         background: none;
         border: none;
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
+        padding: var(--space-2);
     }
 
     .about-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Hero adjustments for mobile */
+    .hero {
+        min-height: 70vh;
+        padding: var(--space-8) 0;
+    }
+
+    .hero-content {
+        padding: var(--space-3);
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        margin-bottom: var(--space-4);
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-6);
+    }
+
+    .hero-stats {
+        gap: var(--space-3);
+        margin-top: var(--space-6);
+    }
+
+    .stat-item {
+        padding: var(--space-3) var(--space-4);
+        min-width: 100px;
+    }
+
+    .stat-number {
+        font-size: var(--text-xl);
+    }
+
+    /* Button group for mobile */
+    .flex.gap-4 {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-3);
+    }
+
+    .flex.gap-4 .btn {
+        width: 100%;
+    }
+
+    /* Cards stack properly on mobile */
+    .card {
+        padding: var(--space-6);
     }
 
     /* Mobile Horizontal Scroll for Cards */
@@ -890,13 +971,42 @@ p {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         padding-bottom: var(--space-8);
-        margin: 0 calc(var(--space-4) * -1);
-        padding: 0 var(--space-4) var(--space-8);
+        margin: 0 calc(var(--space-3) * -1);
+        padding: 0 var(--space-3) var(--space-8);
+        -webkit-overflow-scrolling: touch;
     }
 
     .grid--scroll-mobile>* {
         flex: 0 0 85%;
         scroll-snap-align: center;
+    }
+
+    /* Fix market-card overflow */
+    .market-card {
+        padding: var(--space-4);
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    :root {
+        --text-4xl: 1.75rem;
+        --text-3xl: 1.25rem;
+        --text-2xl: 1.125rem;
+    }
+
+    .container {
+        padding: 0 var(--space-2);
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
     }
 }
 

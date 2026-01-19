@@ -521,41 +521,9 @@ class EdwardsGroupWebsite {
     }
 
     setupSwipeNavigation() {
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const navMenu = document.querySelector('.nav-menu');
-        const toggleButton = document.querySelector('.mobile-toggle');
-
-        if (!navMenu || !toggleButton) return;
-
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe(touchStartX, touchEndX, navMenu, toggleButton);
-        }, { passive: true });
-    }
-
-    handleSwipe(startX, endX, navMenu, toggleButton) {
-        const threshold = 100; // Min distance for swipe
-        const swipeDistance = endX - startX;
-
-        // Swipe Left to Close
-        if (navMenu.classList.contains('active') && swipeDistance > threshold) { // Swiping right actually closes it if it's on the right? No, menu is on right.
-            // If menu is right: -100% (hidden) -> 0 (visible).
-            // To close (0 -> -100%), we swipe RIGHT (positive distance)? 
-            // Wait, menu slides in from RIGHT. So it's at right: 0.
-            // To close, we want to push it back to right. So swipe RIGHT (towards edge).
-            this.toggleMenu(navMenu, toggleButton, false);
-        }
-
-        // Swipe Left to Open (from edge)
-        // Only if starting near right edge
-        if (!navMenu.classList.contains('active') && startX > window.innerWidth - 50 && swipeDistance < -threshold) {
-            this.toggleMenu(navMenu, toggleButton, true);
-        }
+        // DISABLED: Swipe navigation was hijacking normal page scrolling
+        // Users should use the hamburger menu button instead (standard mobile UX)
+        // Keeping this method empty to avoid breaking the call in setupWowFeatures()
     }
 
     toggleMenu(navMenu, toggleButton, show) {
